@@ -1,0 +1,137 @@
+﻿<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<title>Slidifier</title> 
+	
+	<link rel="stylesheet" type="text/css" href="lib/reset.css"></script>
+	<link rel="stylesheet" type="text/css" href="css/styles.css"></script>
+	<link href="lib/prettify/prettify.css" type="text/css" rel="stylesheet" />
+	<link href="lib/prettify/sunburst.css" type="text/css" rel="stylesheet" />
+	
+	<script type="text/javascript" src="lib/jquery-1.5.1.min.js"></script> 
+	<script type="text/javascript" src="lib/prettify/prettify.js"></script>
+	<script type="text/javascript" src="js/ui.js"></script>
+	<!--script type="text/javascript" src="js/slideparser_old.js"></script-->
+	<script type="text/javascript" src="js/slideparser_new.js"></script>
+	<script type="text/javascript" src="js/slidifier.js"></script>
+	
+	<link rel="icon" type="image/gif" href="favicon.gif">
+	<link rel="shortcut icon" href="favicon.gif">
+</head>
+	
+<body>
+	 
+	<div id="slide">
+		<div id="help" style="display:none"><strong>F11</strong> for fullskjerm - Pil <strong>høyre/venstre</strong> eller <strong>museklikk</strong> for å navigere - <strong>Esc</strong> for å avslutte</div>
+		<span id="slidecounter"></span>
+		<div id="slidecontent"></div>
+	</div>
+	
+	<form id="srcForm" action="" method="post">
+		<h1>Slidifier</h1>
+		<h2><span class="medium">Content</span> <span class="big">before</span> <span class="medium">presentation</span></h2>
+		<textarea name="slides_src">
+Viktig presentasjon av ting
+
+Holger Ludvigsen
+
+2011
+
+---
+
+* Dumme ting
+
+Det er viktig å ikke gjøre dumme ting
+
+---
+
+Man må ikke ha dumme overskrifter
+
+De som gjør dumme ting, får følgende ulemper:
+
+- Gjør det dårlig
+- Klarer ikke vanskelige ting
+- Kan oppleve problemer med enkelte områder
+
+---
+
+* Hvordan?
+
+Hvordan unngår man dumme ting?
+
+Svaret er: med godt skrevet kode
+
+\\
+public void doTask() {
+
+	Object result = new Object();
+
+	for (int i = 0; i < size; i++) {
+		String text = "Element nummer "+i;
+		System.out.printline(text);
+	}
+	
+	return result;
+}
+\\
+
+---
+
+* HTML
+
+God HTML gjør ting bedre
+
+\\
+<html>
+	<body>
+		Mucho importante!
+	</body>
+</html>
+\\
+
+Men matte er best: 16x < 42
+
+Og kanskje sitater: "Jeg vinner fordi jeg er best"
+
+---
+
+* Fremtiden
+
+Suksessfulle foretak har kjente karakteristikker:
+
+- De gjør det bra
+	-- På noen områder
+	-- Men også helst alle områder
+- De prøver å være best
+- Og de er best
+- Det er ikke lov å ikke være best
+	-- Er man ikke best gjør man det dårlig
+	-- Gjør man det dårlig er det utfordrende å være best
+		--- Det blir vanskelig å vinne
+		--- Kan være lett å tape
+- Ikke tap!
+
+---
+
+* Triks
+
+For å gjøre det <strong>ekstra bra</strong> kan man bruke <em>spesielle triks</em>
+
+<img src="pic.jpg"/>
+
+---
+
+Spørsmål?
+
+Ikke ta kontakt!
+
+fjompenisse@eplekjekk.no
+
+<span style="color:gray">&copy; 2011</span>
+		</textarea>
+		<br/>
+		<input id="submitButton" type="submit" value="Slidify!" />
+	</form>
+ 
+</body>
+</html
