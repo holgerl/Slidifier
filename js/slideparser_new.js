@@ -64,6 +64,13 @@ var processSlideSource = function(slideSrc) {
 		}
 	}
 	
+	if (inCode) {
+		slide += "</pre>\n";
+	}
+	if (inList) {
+		slide += "</ul>\n";
+	}
+	
 	slides.push(slide);
 	
 	if (slides.length > 0) {
