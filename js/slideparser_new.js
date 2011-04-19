@@ -64,12 +64,14 @@ var processSlideSource = function(slideSrc) {
 		}
 	}
 	
-	for (var i in slides) {
-		console.log(slides[i]);
-	}
+	slides.push(slide);
 	
 	if (slides.length > 0) {
 		slides[0] = processTitleSlide(slides[0]);
+	}
+	
+	for (var i in slides) {
+		console.log(slides[i]);
 	}
 	
 	return slides;
@@ -106,7 +108,9 @@ var processTitleSlide = function(slide) {
 	var result = "";
 	for (var i in headers) {
 		var level = parseInt(i)+1;
-		result += "<h"+level+" class='titleslide'>"+headers[i]+"</h"+level+">";
+		if (headers[i].length > 0) {
+			result += "<h"+level+" class='titleslide'>"+headers[i]+"</h"+level+">";
+		}
 	}
 	return result;
 }
