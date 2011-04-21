@@ -15,7 +15,7 @@ function refresh() {
 }
 
 $(document).keydown(function(e) {
-	if (refreshed) {
+	if (refreshed && $("#slide").is(':visible')) {
 		if (e.keyCode == 37) {
 			slideCounter--;
 			refresh();
@@ -34,7 +34,7 @@ $(document).keydown(function(e) {
 });
 
 $(document).mousedown(function(e) {
-	if (e.which == 1) {
+	if (e.which == 1 && $("#slide").is(':visible')) {
 		slideCounter++;
 		refresh();
 	}
