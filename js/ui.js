@@ -46,6 +46,6 @@ function loadTheme() {
 		themeDom.remove();
 	}
 	themeName = $("input[@name='theme']:checked").val();
-	themeDom = $('<link rel="stylesheet" type="text/css" />').attr('href', 'css/themes/' + themeName + '.css');
+	themeDom = $('<link rel="stylesheet" type="text/css" />').attr('href', 'css/themes/' + themeName + '/theme.css');
 	$('head').append(themeDom);
 }

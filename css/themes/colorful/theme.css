@@ -1,0 +1,40 @@
+/* http://www.colourlovers.com/palette/848743/(◕_”_◕) */
+#slide {
+	background: #16171a url('bg.png') repeat-x left top;
+	color: #eee;
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+   	font-weight: 300;
+   	font-style: normal;
+}
+
+#slide h1, #slide h2, #slide h3, #slide h4, #slide h5, #slide h6 {
+	color: #f8ca00;
+	font-family: "Georgia, Times, ‘Times New Roman’, serif";
+	text-transform: uppercase;
+	font-style: normal;
+}
+
+#slide li.lvl2 {
+	color: #ccc;
+}
+
+#slide li.lvl3 {
+	color: #ccc;
+}
+
+#slidecounter {
+	color: #bd1550;
+}
+
+#slide #help {
+	background: #490a3d;
+	width: 100%;
+	color: #8a9b0f;
+	border-bottom: 1px solid #8a9b0f;
+}
+
+/* prettyPrint-tilpasninger */
+pre.prettyprint, code.prettyprint {
+	background-color: #222;
+	border-color: #bd1550;
+}
