@@ -1,4 +1,5 @@
 refreshed = true;
+var themeDom;
 
 function refresh() {
 	refreshed = false;
@@ -39,3 +40,12 @@ $(document).mousedown(function(e) {
 		refresh();
 	}
 });
+
+function loadTheme() {
+	if(themeDom !== undefined) {
+		themeDom.remove();
+	}
+	themeName = $("input[@name='theme']:checked").val();
+	themeDom = $('<link rel="stylesheet" type="text/css" />').attr('href', 'css/themes/' + themeName + '.css');
+	$('head').append(themeDom);
+}

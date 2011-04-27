@@ -16,6 +16,9 @@ $(document).ready(function() {
 		slideCounter = 0;
 		
 		refresh();
+		
+		loadTheme();
+		
 		$("#srcForm").fadeOut("fast", function() {
 			$("#slide").fadeIn("fast");
 		});

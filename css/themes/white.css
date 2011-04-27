@@ -1,0 +1,17 @@
+#slide {
+	background-color: white;
+	color: #222;
+}
+
+#slide li.lvl2 {
+	color: #444;
+}
+
+#slide li.lvl3 {
+	color: #444;
+}
+
+/* prettyPrint-tilpasninger */
+pre.prettyprint, code.prettyprint {
+	background-color: #333;
+}
