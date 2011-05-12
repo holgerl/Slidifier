@@ -39,7 +39,7 @@ input#submitButton {
 input#submitButton:hover {
 	background-image: -moz-linear-gradient(top, #AA1317, #ED1C24);
 	background-image: -webkit-gradient(linear, left top, left bottom, from(#AA1317), to(#ED1C24));
-	}
+}
 
 h1 {
 	margin-top: 0.5em;
@@ -73,3 +73,34 @@ span.small {
 	font-size: 75%;
 }
 
+div.frontpagecontainer {
+	margin-left: auto; margin-right: auto; width: 50%;
+}
+
+div.frontpagebox {
+	border-radius: 5px; box-shadow: 3px 3px 5px #333;
+	background-image: -moz-linear-gradient(top, #ED1C24, #AA1317);
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#ED1C24), to(#AA1317));
+	border: 1px solid #A33;
+	padding: 20px;
+	margin: 50px;
+}
+
+div.frontpagebox:hover {
+	background-image: -moz-linear-gradient(top, #AA1317, #ED1C24);
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#AA1317), to(#ED1C24));
+}
+
+div.frontpagebox h2 {
+	font-family: georgia;
+	font-style: italic;
+	font-size: 2em;
+	color: white; 
+	text-align: center; 
+	margin: 10px;
+	text-shadow: 2px 2px 2px #222;
+}
+
+a:link, a:hover, a:active, a:visited {
+	text-decoration: none;
+}
