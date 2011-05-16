@@ -1,17 +1,42 @@
+/* http://www.colourlovers.com/palette/444487/Curiosity_Killed */
+
 body {
-	background-color: #e8e8e8; font-family: georgia;
+	background-color: #ebebeb; 
+	background-image: url("noise.jpg");
+	background-repeat: repeat-x;
+	font-family: georgia;
+	color: #2E2633;
+	margin: 0;
+	padding: 0;
 }
 
 #srcForm {
 	margin-left: auto; margin-right: auto; width: 50%;
 }
 
+#header {
+	background-color: #99173C;
+	height: 60px;
+	padding: 0px;
+	border-bottom: 1px solid #EFFFCD;
+	margin-bottom: 50px;
+}
+#logo {
+	padding-top: 3px;
+}
+.center {
+	margin: 0 auto;
+	width: 50%;
+}
+
+
 form {
 	margin: 10px;
 }
 
 textarea {
-	width: 100%; height: 300px; padding: 5px 0px 0px 5px; margin-bottom: 10px
+	width: 100%; height: 300px; padding: 5px 0px 0px 5px; margin-bottom: 10px;
+	border: 1px solid #eeeeee;
 }
 
 #themePicker {
@@ -22,23 +47,21 @@ textarea {
 }
 
 input#submitButton {
-	font-style: italic;
-	font-size: 2.5em;
+	font-size: 1.5em;
 	margin-top: 10px;
 	padding: 10px 15px;
 	font-family: georgia;
 	color: white;
-	background-image: -moz-linear-gradient(top, #ED1C24, #AA1317);
-	background-image: -webkit-gradient(linear, left top, left bottom, from(#ED1C24), to(#AA1317));
-	border: 1px solid #A33;
+	background-color: #2E2633;
+	border: 1px solid #555152;
 	text-shadow: 2px 2px 2px #222; border-radius: 5px; box-shadow: 3px 3px 5px #333;
 	cursor: pointer;
 	float: right;
+	text-transform: uppercase;
 }
 
 input#submitButton:hover {
-	background-image: -moz-linear-gradient(top, #AA1317, #ED1C24);
-	background-image: -webkit-gradient(linear, left top, left bottom, from(#AA1317), to(#ED1C24));
+	background-color: #99173C;
 }
 
 h1 {
@@ -78,17 +101,21 @@ div.frontpagecontainer {
 }
 
 div.frontpagebox {
-	border-radius: 5px; box-shadow: 3px 3px 5px #333;
-	background-image: -moz-linear-gradient(top, #ED1C24, #AA1317);
-	background-image: -webkit-gradient(linear, left top, left bottom, from(#ED1C24), to(#AA1317));
-	border: 1px solid #A33;
-	padding: 20px;
-	margin: 50px;
+	font-family: georgia;
+	color: white;
+	background-color: #2E2633;
+	border: 1px solid #555152;
+	text-shadow: 2px 2px 2px #222; border-radius: 5px; box-shadow: 3px 3px 5px #333;
+	cursor: pointer;
+	float: right;
+	text-transform: uppercase;
+	padding: 20px 0;
+	margin: 20px 0;
+	width: 720px;
 }
 
 div.frontpagebox:hover {
-	background-image: -moz-linear-gradient(top, #AA1317, #ED1C24);
-	background-image: -webkit-gradient(linear, left top, left bottom, from(#AA1317), to(#ED1C24));
+	background-color: #99173C;
 }
 
 div.frontpagebox h2 {
@@ -104,3 +131,17 @@ div.frontpagebox h2 {
 a:link, a:hover, a:active, a:visited {
 	text-decoration: none;
 }
+
+div.grippie {
+ background:#EEEEEE url(grippie.png) no-repeat scroll center 2px;
+ border-color:#DDDDDD;
+ border-style:solid;
+ border-width:0pt 1px 1px;
+ cursor:s-resize;
+ height:9px;
+ overflow:hidden;
+ }
+ .resizable-textarea textarea {
+ 	display:block;
+ 	margin-bottom:0pt;
+ }

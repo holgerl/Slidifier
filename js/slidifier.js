@@ -4,6 +4,8 @@ var slideCounter;
 $(document).ready(function() {
 	$("#slide").hide();
 	
+	$('#srcForm textarea').TextAreaResizer();
+	
 	// for debugging only:
 	slides = $('textarea[name=slides_src]').val();
 	slides = processSlideSource(slides);
