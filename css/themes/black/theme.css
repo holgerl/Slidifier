@@ -11,6 +11,11 @@
 	color: #ccc;
 }
 
+#slide #help {
+	background: rgba(255,255,255,0.2);
+	width: 100%;
+}
+
 /* prettyPrint-tilpasninger */
 pre.prettyprint, code.prettyprint {
 	background-color: #333;

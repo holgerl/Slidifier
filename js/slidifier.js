@@ -21,17 +21,15 @@ $(document).ready(function() {
 		
 		loadTheme();
 		
-		$("#srcForm").fadeOut("fast", function() {
-			$("#slide").fadeIn("fast");
-		});
-		
-		setTimeout(function() {
+		$("#srcForm").fadeOut(10, function() {
+			$("#slide").fadeIn(1000, function() {
 				$("#help").slideDown("slow", function() {
 					setTimeout(function() {
 						$("#help").slideUp("slow");
-					}, 2000);
+					}, 3000);
 				});
-			}, 500);
+			});
+		});
 		
 		return false;
 	});

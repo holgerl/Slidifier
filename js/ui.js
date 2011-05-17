@@ -6,10 +6,10 @@ function refresh() {
 	slideCounter = Math.max(slideCounter, 0);
 	slideCounter = Math.min(slideCounter, slides.length-1);
 	$('#slidecounter').html(parseInt(slideCounter+1) + "/" + slides.length);
-	$('#slidecontent').fadeOut(100, function() {
+	$('#slidecontent').fadeOut(10, function() {
 		$('#slidecontent').html(slides[slideCounter]);
 		prettyPrint();
-		$('#slidecontent').fadeIn(100, function() {
+		$('#slidecontent').fadeIn(300, function() {
 			refreshed = true;
 		});
 	});
