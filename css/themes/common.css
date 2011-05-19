@@ -16,7 +16,7 @@
 #slide h4.titleslide, 
 #slide h5.titleslide, 
 #slide h6.titleslide {
-	margin-bottom: 1em; margin-top: 1em;
+	margin-bottom: 1em; margin-top: 1em; text-align: center;
 }
 
 #slide {

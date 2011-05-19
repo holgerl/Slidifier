@@ -36,6 +36,8 @@ var processSlideSource = function(slideSrc) {
 			}
 		}
 		
+		tokens[i].body = unescapeWhitelist(escapeTags(tokens[i].body));
+		
 		switch (tokens[i].token) {
 			case "slidemark":
 				slides.push(slide);
@@ -141,5 +143,17 @@ var countNumberOf = function(char, str) {
 }
 
 function escapeTags(str) {
-	return String(str).replace(/</g, '&lt;').replace(/>/g, '&gt;');
+	var escaped = String(str).replace(/</g, '&lt;').replace(/>/g, '&gt;');
+	return escaped;
+}
+
+function unescapeWhitelist(str) {
+	var whitelist = new Array("strong", "img", "em", "span", "h1", "h2", "h3", "h4", "h5", "h6", "!--");
+	
+	for (var i in whitelist) {
+		var white = new RegExp("&lt;(\s*[^&]*"+whitelist[i]+"[^&]*)&gt;", "g");
+		str = str.replace(white, "<$1>");
+	}
+	
+	return str;
 }
