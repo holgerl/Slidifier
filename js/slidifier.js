@@ -38,5 +38,3 @@ $(document).ready(function() {
 	});
 
 });
-
-//slide = slide.replace(/-\s*([^\n]*)\n/g,"<li>$1</h1>");

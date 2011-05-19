@@ -60,5 +60,5 @@
 }
 
 #slide pre {
-	font-family: monospace; font-size: 75%;
+	font-family: monospace; font-size: 75%; white-space: pre-wrap;
 }
