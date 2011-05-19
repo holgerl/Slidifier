@@ -46,24 +46,24 @@ testProcessSlideSource("slidemark 5", inputString, outputArray);
 
 module('Heading');
 
-inputString = "test\n---\n*foo\nbar";
-outputArray = ["<h1 class='titleslide'>test</h1>","<h1>foo</h1>\nbar\n"];
+inputString = "test\n---\n#foo\nbar";
+outputArray = ["<h1 class='titleslide'>test</h1>","<h1>foo</h1>bar\n"];
 testProcessSlideSource("heading 1", inputString, outputArray);
 
-inputString = "test\n---\n*   foo\nbar";
-outputArray = ["<h1 class='titleslide'>test</h1>","<h1>foo</h1>\nbar\n"];
+inputString = "test\n---\n#   foo\nbar";
+outputArray = ["<h1 class='titleslide'>test</h1>","<h1>foo</h1>bar\n"];
 testProcessSlideSource("heading 2", inputString, outputArray);
 
-inputString = "test\n---\nfoo*bar";
-outputArray = ["<h1 class='titleslide'>test</h1>","foo*bar\n"];
+inputString = "test\n---\nfoo#bar";
+outputArray = ["<h1 class='titleslide'>test</h1>","foo#bar\n"];
 testProcessSlideSource("heading 3", inputString, outputArray);
 
-inputString = "test\n---\n** foo";
-outputArray = ["<h1 class='titleslide'>test</h1>","<h1>* foo</h1>\n"];
+inputString = "test\n---\n# # foo";
+outputArray = ["<h1 class='titleslide'>test</h1>","<h2>foo</h2>"];
 testProcessSlideSource("heading 4", inputString, outputArray);
 
-inputString = "test\n---\n* foo\n* bar";
-outputArray = ["<h1 class='titleslide'>test</h1>","<h1>foo</h1>\n<h1>bar</h1>\n"];
+inputString = "test\n---\n# foo\n# bar";
+outputArray = ["<h1 class='titleslide'>test</h1>","<h1>foo</h1><h1>bar</h1>"];
 testProcessSlideSource("heading 5", inputString, outputArray);
 
 
@@ -112,5 +112,5 @@ testProcessSlideSource("code 2", inputString, outputArray);
 module('Markup');
 
 inputString = "test\n---\n<strong>foo</strong> bar <em>foobar</em>\n5y < 4\n4x > 3\n<barfoo>barbar</barfoo>";
-outputArray = ["<h1 class='titleslide'>test</h1>","<strong>foo</strong> bar <em>foobar</em>\n5y < 4\n4x > 3\n<barfoo>barbar</barfoo>\n"];
+outputArray = ["<h1 class='titleslide'>test</h1>","<strong>foo</strong> bar <em>foobar</em>\n5y &lt; 4\n4x &gt; 3\n&lt;barfoo&gt;barbar&lt;/barfoo&gt;\n"];
 testProcessSlideSource("markup 1", inputString, outputArray);
