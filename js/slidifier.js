@@ -24,7 +24,7 @@ $(document).ready(function() {
 		
 		loadTheme();
 		
-		$("#srcForm").fadeOut(10, function() {
+		$("#slideEdit").fadeOut(10, function() {
 			$("#slide").fadeIn(1000, function() {
 				$("#help").slideDown("slow", function() {
 					setTimeout(function() {

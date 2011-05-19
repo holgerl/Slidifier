@@ -38,7 +38,7 @@ $(document).keydown(function(e) {
 		}
 		if (e.keyCode == 27) {
 			$("#slide").hide();
-			$("#srcForm").show();
+			$("#slideEdit").show();
 		}
 	}
 });
