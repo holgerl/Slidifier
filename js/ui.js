@@ -15,6 +15,15 @@ function refresh() {
 	});
 }
 
+function updateClock() {
+	var time = new Date();
+	var hours = time.getHours();
+	var minutes = time.getMinutes();
+	hours = (hours < 10 ? "0" : "") + hours;
+	minutes = (minutes < 10 ? "0" : "") + minutes;
+	$('#clock').html(hours + ":" + minutes);
+}
+
 $(document).keydown(function(e) {
 	if (refreshed && $("#slide").is(':visible')) {
 		if (e.keyCode == 37) {

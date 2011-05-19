@@ -1,6 +1,7 @@
 #slide #help {
 	font-family: Courier new;
 	padding: 15px;
+	text-align: center;
 	font-size: 0.65em;
 	position: fixed;
 }
@@ -24,6 +25,10 @@
 
 #slidecounter {
 	font-size: 0.75em; display: inline; float: right; margin: 10px;
+}
+
+#clock {
+	font-size: 0.75em; display: inline; float: left; margin: 10px;
 }
 
 #slidecontent {

@@ -6,6 +6,9 @@ $(document).ready(function() {
 	
 	$('#srcForm textarea').TextAreaResizer();
 	
+	updateClock();
+	setInterval('updateClock()', 1000*60);
+	
 	// for debugging only:
 	slides = $('textarea[name=slides_src]').val();
 	slides = processSlideSource(slides);
