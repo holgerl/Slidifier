@@ -36,11 +36,11 @@
 }
 
 #slide h1 {
-	font-size: 1.5em;
+	font-size: 1.65em; margin-bottom: 0.1em; font-weight: bold; text-align: center;
 }
 
-#slide h1, #slide h2, #slide h3, #slide h4, #slide h5, #slide h6 {
-	font-weight: bold; text-align: center; margin-bottom: 0.1em;
+#slide h2, #slide h3, #slide h4, #slide h5, #slide h6 {
+	font-size: 1.3em; text-align: left;margin-bottom: 0em;
 }
 
 #slide ul, #slide ol {

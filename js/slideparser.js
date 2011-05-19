@@ -47,7 +47,8 @@ var processSlideSource = function(slideSrc) {
 				inList = true;
 				break;
 			case "heading":
-				slide += "<h1>"+tokens[i].body+"</h1>"+"\n";
+				var lvl = countNumberOf("#",tokens[i].keyword);
+				slide += "<h"+lvl+">"+tokens[i].body+"</h"+lvl+">";
 				break;
 			case "codemark":
 				slide += "<pre class='prettyprint'>\n";
@@ -88,7 +89,7 @@ var tokenize = function(line) {
 	var regexes = [
 		["slidemark", 	/^\s*(-\s*-\s*-)\s*()$/, 			1, 2],
 		["bullet", 		/^\s*((-\s*)*-)\s*(([^-]|\S)+)$/, 	1, 3],
-		["heading", 	/^\s*(\*)\s*(([^*]|\S)+)$/, 		1, 2],
+		["heading", 	/^\s*((#\s*)*#)\s*(([^#]|\S)+)$/, 	1, 3],
 		["codemark", 	/^\s*(\\\s*\\)\s*()$/, 				1, 2],
 		["empty", 		/^(\s*)()$/, 						1, 2],
 		["catchall", 	/^()(.*)$/, 						1, 2],
