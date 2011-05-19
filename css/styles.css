@@ -102,8 +102,6 @@ div.frontpagecontainer {
 
 div.frontpagebox {
 	font-family: georgia;
-	color: white;
-	background-color: #2E2633;
 	border: 1px solid #555152;
 	text-shadow: 2px 2px 2px #222; border-radius: 5px; box-shadow: 3px 3px 5px #333;
 	cursor: pointer;
@@ -114,6 +112,22 @@ div.frontpagebox {
 	width: 720px;
 }
 
+div.upperbox {
+	background-color: #2E2633;
+}
+
+div.upperbox h2 {
+	color: #fff;
+}
+
+div.lowerbox {
+	background-color: #4E4653;
+}
+
+div.lowerbox h2 {
+	color: #eee;
+}
+
 div.frontpagebox:hover {
 	background-color: #99173C;
 }
@@ -122,7 +136,6 @@ div.frontpagebox h2 {
 	font-family: georgia;
 	font-style: italic;
 	font-size: 2em;
-	color: white; 
 	text-align: center; 
 	margin: 10px;
 	text-shadow: 2px 2px 2px #222;
