@@ -16,19 +16,39 @@ body {
 
 #header {
 	background-color: #99173C;
-	height: 60px;
+	height: 70px;
 	padding: 0px;
 	border-bottom: 1px solid #EFFFCD;
 	margin-bottom: 50px;
 }
 #logo {
-	padding-top: 3px;
+	padding: 7px;
 }
 .center {
 	margin: 0 auto;
 	width: 50%;
 }
 
+.tellmemore {
+	float: right;
+	color: #fff;
+	font-size: 85%;
+	font-family: arial black;
+	padding: 4px 6px;
+	margin: 10px;
+	text-align: center;
+	/*border: 1px solid #2E2633;*/
+	text-shadow: 1px 1px 2px #000;
+	border-radius: 5px;
+	box-shadow: 3px 3px 5px #333;
+	cursor: pointer;
+	text-transform: uppercase;
+	background-color: #DCE9BE;
+}
+
+.tellmemore:hover {
+	background-color: #EFFFCD;
+}
 
 form {
 	margin: 10px;
