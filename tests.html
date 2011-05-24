@@ -1,18 +1,200 @@
-<!DOCTYPE html>  
 <html>  
 <head>  
-	<title>QUnit Test Suite</title>  
-	<link rel="stylesheet" href="lib/qunit/qunit.css" type="text/css" media="screen">  
-	<script type="text/javascript" src="lib/qunit/qunit.js"></script>  
+	<title>Slidifier Test</title>  
+	
+	<link rel="stylesheet" href="lib/qunit/qunit.css" type="text/css" media="screen">
+	<link rel="stylesheet" type="text/css" href="lib/reset.css"></script>
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+	<link rel="stylesheet" type="text/css" href="css/themes/common.css">
+	<link href="lib/prettify/prettify.css" type="text/css" rel="stylesheet" />
+	<link href="lib/prettify/sunburst.css" type="text/css" rel="stylesheet" />
+	
+	<script type="text/javascript" src="lib/qunit/qunit.js"></script> 
+	<script type="text/javascript" src="lib/jquery-1.6.1.min.js"></script> 
+	<script type="text/javascript" src="lib/prettify/prettify.js"></script>
+	<script type="text/javascript" src="lib/resizer/jquery.textarearesizer.js"></script>
+	
+	<script type="text/javascript" src="js/ui.js"></script>
 	<script type="text/javascript" src="js/dynamics.js"></script>
 	<script type="text/javascript" src="js/slideparser.js"></script>
+	<script type="text/javascript" src="js/slidifier.js"></script>
 	<script type="text/javascript" src="js/tests.js"></script>  
 </head>  
 <body>  
-	<h1 id="qunit-header">QUnit Test Suite</h1>  
-	<h2 id="qunit-banner"></h2>  
-	<div id="qunit-testrunner-toolbar"></div>  
-	<h2 id="qunit-userAgent"></h2>  
-	<ol id="qunit-tests"></ol>  
+
+	<div id="slide">
+		<div id="help" style="display:none"><strong>F11</strong> for fullskjerm - Pil <strong>høyre/venstre</strong> eller <strong>museklikk</strong> for å navigere - <strong>Esc</strong> for å avslutte</div>
+		<span id="clock"></span>
+		<span id="slidecounter"></span>
+		<div id="slidecontent"></div>
+	</div>
+
+	<div id="slideEdit">
+		<form id="srcForm" action="" method="post">
+		<textarea name="slides_src">
+# Viktig presentasjon av ting
+
+## Holger Ludvigsen og Espen H. Halvorsen
+
+### 2011
+
+---
+
+# Dumme ting
+
+Det er viktig å ikke gjøre dumme ting
+
+---
+
+Man må ikke ha dumme overskrifter
+
+De som gjør dumme ting, får følgende ulemper:
+
+- Gjør det dårlig
+- Klarer ikke vanskelige ting
+- Kan oppleve problemer med enkelte områder
+
+---
+
+# Fin overskrift
+
+## Mindre overskrift
+
+Masse tekst som er relevant for den mindre overskriften.
+
+## Enda en mindre overskrift
+
+Mer tekst som er mest relevant for den siste overskriften.
+
+---
+
+# Slide med bare headers
+
+## (den blir behandlet med dynamics)
+
+---
+
+# Hvordan?
+
+Hvordan unngår man dumme ting?
+
+Svaret er: med godt skrevet kode
+
+\\
+public void doTask() {
+
+	Object result = new Object();
+
+	for (int i = 0; i < size; i++) {
+		String text = "Element nummer "+i;
+		System.out.printline(text);
+	}
+	
+	return result;
+}
+\\
+
+---
+
+# HTML
+
+God HTML gjør ting bedre
+
+\\
+<html>
+	<body>
+		Mucho importante!
+	</body>
+</html>
+\\
+
+Men matte er best: 16x < 42
+
+Og kanskje sitater: "Jeg vinner fordi jeg er best"
+
+---
+
+# Escaping av ting og tang
+
+## Disse escapes ikke (blant annet):
+
+<strong>strong</strong> (strong)
+<img src="favicon.gif"/> (bilde)
+<!-- kommentar --> (kommentar)
+
+## Disse escapes (blant annet):
+
+<tull></tøys>
+< fjas />
+<<kaos><kaos>>
+
+---
+
+I verste fall er koden lang
+
+\\
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE Server SYSTEM "opt/pdos/etc/pdoslrd.dtd">
+    <root>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:sequence>
+                <xs:element name="to" type="xs:string"/><xs:element name="from" type="xs:string"/><xs:element name="heading" type="xs:string"/><xs:element name="body" type="xs:string"/>
+            </xs:sequence>
+        </xs:schema>
+    </root>
+\\
+
+---
+
+# Fremtiden
+
+Suksessfulle foretak har kjente karakteristikker:
+
+- De gjør det bra
+	-- På noen områder
+	-- Men også helst alle områder
+- De prøver å være best
+- Og de er best
+- Det er ikke lov å ikke være best
+	-- Er man ikke best gjør man det dårlig
+	-- Gjør man det dårlig er det utfordrende å være best
+		--- Det blir vanskelig å vinne
+		--- Kan være lett å tape
+- Ikke tap!
+
+---
+
+# Triks
+
+For å gjøre det <strong>ekstra bra</strong> kan man bruke <em>spesielle triks</em>
+
+<img src="pic.jpg"/>
+
+---
+
+Spørsmål?
+
+Ikke ta kontakt!
+
+fjompenisse@eplekjekk.no
+
+<span style="color:gray">&copy; 2011</span>
+			</textarea>
+			<br/>
+			<div id="themePicker">
+				<b>Theme:</b>
+				<input type="radio" name="theme" value="white" checked> White
+				<input type="radio" name="theme" value="black"> Black
+				<input type="radio" name="theme" value="colorful"> Colorful
+			</div> 
+			<input id="submitButton" type="submit" value="Slidify!" />
+			<div style="clear: both"></div>
+		</form>
+
+		<h1 id="qunit-header">QUnit Test Suite</h1>  
+		<h2 id="qunit-banner"></h2>  
+		<div id="qunit-testrunner-toolbar"></div>  
+		<h2 id="qunit-userAgent"></h2>  
+		<ol id="qunit-tests"></ol>  
+	</div>
 </body>  
 </html>  
