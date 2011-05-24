@@ -9,6 +9,8 @@ var processSlideSource = function(slideSrc) {
 	
 	tokens = removeEmptyLinesAroundSlidedelimiters(tokens);
 	
+	tokens = applyDynamics(tokens);
+	
 	for (var i in tokens) {
 		console.log(tokens[i]);
 	}
@@ -50,7 +52,8 @@ var processSlideSource = function(slideSrc) {
 				break;
 			case "heading":
 				var lvl = countNumberOf("#",tokens[i].keyword);
-				slide += "<h"+lvl+">"+tokens[i].body+"</h"+lvl+">";
+				var class = tokens[i].addClass != undefined ? " class='"+tokens[i].addClass+"'" : "";
+				slide += "<h"+lvl+class+">"+tokens[i].body+"</h"+lvl+">";
 				break;
 			case "codemark":
 				slide += "<pre class='prettyprint'>\n";
@@ -75,10 +78,6 @@ var processSlideSource = function(slideSrc) {
 	}
 	
 	slides.push(slide);
-	
-	if (slides.length > 0) {
-		slides[0] = processTitleSlide(slides[0]);
-	}
 	
 	for (var i in slides) {
 		console.log(slides[i]);
