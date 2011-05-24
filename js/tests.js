@@ -94,18 +94,18 @@ outputArray = ["<ul><li class='lvl1'>foo</li><li class='lvl2'>bar</li><li class=
 testProcessSlideSource("bullet 6", inputString, outputArray);
 
 inputString = "- foo\n- bar\nfoobar\n- barfoo\n- barbar";
-outputArray = ["<ul><li class='lvl1'>foo</li><li class='lvl1'>bar</li></ul>\nfoobar\n<ul><li class='lvl1'>barfoo</li><li class='lvl1'>barbar</li></ul>\n"];
+outputArray = ["<ul><li class='lvl1'>foo</li><li class='lvl1'>bar</li></ul>foobar\n<ul><li class='lvl1'>barfoo</li><li class='lvl1'>barbar</li></ul>\n"];
 testProcessSlideSource("bullet 7", inputString, outputArray);
 
 
 module('Code');
 
 inputString = "foobar\n\\\\\npublic class Foo {private int bar;}\n\\\\\nbarfoo";
-outputArray = ["foobar\n<pre class='prettyprint'>\npublic class Foo {private int bar;}\n</pre>\nbarfoo\n"];
+outputArray = ["foobar\n<pre class='prettyprint'>\npublic class Foo {private int bar;}\n</pre>barfoo\n"];
 testProcessSlideSource("code 1", inputString, outputArray);
 
 inputString = "\\\\\n<html><em>foobar</em></html>\n\\\\";
-outputArray = ["<pre class='prettyprint'>\n&lt;html&gt;&lt;em&gt;foobar&lt;/em&gt;&lt;/html&gt;\n</pre>\n"];
+outputArray = ["<pre class='prettyprint'>\n&lt;html&gt;&lt;em&gt;foobar&lt;/em&gt;&lt;/html&gt;\n</pre>"];
 testProcessSlideSource("code 2", inputString, outputArray);
 
 

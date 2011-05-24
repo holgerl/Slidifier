@@ -25,7 +25,7 @@ var processSlideSource = function(slideSrc) {
 			if (tokens[i].token != "codemark") {
 				slide += escapeTags(tokens[i].line+"\n");
 			} else {
-				slide += "</pre>\n";
+				slide += "</pre>";
 				inCode = false;
 			}
 			continue;
@@ -33,7 +33,7 @@ var processSlideSource = function(slideSrc) {
 		
 		if (inList) {
 			if (tokens[i].token != "bullet") {
-				slide += "</ul>\n";
+				slide += "</ul>";
 				inList = false;
 			}
 		}
