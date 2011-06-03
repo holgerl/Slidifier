@@ -10,6 +10,10 @@ body {
 	padding: 0;
 }
 
+p {
+	font-size: 1.1em;
+}
+
 #srcForm {
 	margin-left: auto; margin-right: auto; width: 50%;
 }
@@ -43,6 +47,7 @@ body {
 	cursor: pointer;
 	text-transform: uppercase;
 	background-color: #DCE9BE;
+	text-decoration: none;
 }
 
 .tellmemore:hover {
@@ -173,6 +178,10 @@ div.frontpagebox {
 	width: 720px;
 }
 
+a.noline {
+	text-decoration: none;
+}
+
 div.upperbox {
 	background-color: #2E2633;
 }
@@ -200,10 +209,6 @@ div.frontpagebox h2 {
 	text-align: center; 
 	margin: 10px;
 	text-shadow: 2px 2px 2px #222;
-}
-
-a:link, a:hover, a:active, a:visited {
-	text-decoration: none;
 }
 
 div.grippie {
