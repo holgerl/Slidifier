@@ -18,7 +18,7 @@ body {
 	background-color: #99173C;
 	height: 70px;
 	padding: 0px;
-	border-bottom: 1px solid #EFFFCD;
+	border-bottom: 5px solid #EFFFCD;
 	margin-bottom: 50px;
 }
 #logo {
@@ -37,10 +37,9 @@ body {
 	padding: 4px 6px;
 	margin: 10px;
 	text-align: center;
-	/*border: 1px solid #2E2633;*/
 	text-shadow: 1px 1px 3px #000;
-	border-radius: 5px;
-	box-shadow: 3px 3px 5px #333;
+	border-radius: 7px;
+	box-shadow: 2px 2px 7px #630F28;
 	cursor: pointer;
 	text-transform: uppercase;
 	background-color: #DCE9BE;
@@ -55,12 +54,13 @@ form {
 }
 
 textarea {
-	width: 100%; height: 300px; padding: 5px 0px 0px 5px; margin-bottom: 10px;
+	width: 100%; height: 400px; padding: 5px 0px 0px 5px; margin-bottom: 10px;
 	border: 1px solid #eeeeee;
 }
 
 #themePicker {
 	float: left;
+	margin-top: 25px;
 }
 #themePicker input {
 	margin-left: 10px;
@@ -68,20 +68,61 @@ textarea {
 
 input#submitButton {
 	font-size: 1.5em;
-	margin-top: 10px;
+	margin-top: 17px;
 	padding: 10px 15px;
 	font-family: georgia;
 	color: white;
-	background-color: #2E2633;
-	border: 1px solid #555152;
 	text-shadow: 2px 2px 2px #222; border-radius: 5px; box-shadow: 3px 3px 5px #333;
 	cursor: pointer;
 	float: right;
 	text-transform: uppercase;
+	letter-spacing: 1px;
+	
+	background: -moz-linear-gradient(
+		top,
+		#4E4653 0%,
+		#2E2633);
+	border-radius: 10px;
+	border: 1px solid #555152;
+	-moz-box-shadow:
+		0px 1px 3px rgba(000,000,000,0.5),
+		inset 0px 2px 2px rgba(255,255,255,0.7);
+	text-shadow:
+		0px -1px 0px rgba(000,000,000,0.4),
+		0px 1px 0px rgba(255,255,255,0.3);
 }
 
 input#submitButton:hover {
-	background-color: #99173C;
+	background: -moz-linear-gradient(
+		top,
+		#99173C 0%,
+		#69071C);
+	border: 1px solid #Bd5876;
+}
+
+label#whitelabel,
+label#blacklabel,
+label#colorfullabel {
+	padding: 3px 6px;
+	margin-left: 3px;
+	border-radius: 4px;
+	font-size: 80%;
+	margin-top: -2px;
+}
+
+label#whitelabel {
+	background-color: #fff;
+	color: #222;
+}
+
+label#blacklabel {
+	background-color: #000;
+	color: #eee;
+}
+
+label#colorfullabel {
+	background-color: #16171A;
+	color: #F8CA00;
 }
 
 h1 {
@@ -166,15 +207,20 @@ a:link, a:hover, a:active, a:visited {
 }
 
 div.grippie {
- background:#EEEEEE url(grippie.png) no-repeat scroll center 2px;
- border-color:#DDDDDD;
- border-style:solid;
- border-width:0pt 1px 1px;
- cursor:s-resize;
- height:9px;
- overflow:hidden;
- }
- .resizable-textarea textarea {
- 	display:block;
- 	margin-bottom:0pt;
- }
+	background:#EEEEEE url(grippie.png) no-repeat scroll center 2px;
+	border-color:#DDDDDD;
+	border-style:solid;
+	border-width:0pt 1px 1px;
+	cursor:s-resize;
+	height:9px;
+	overflow:hidden;
+}
+
+.resizable-textarea textarea {
+	display:block;
+	margin-bottom:0pt;
+}
+
+.resizable-textarea {
+	box-shadow: 3px 3px 10px #666;
+}
