@@ -28,30 +28,35 @@ p {
 #logo {
 	padding: 7px;
 }
+#header ul {
+	float: right;
+	margin-top: 40px;
+}
+#header ul li {
+	float: left;
+}
+#header ul li a {
+	text-decoration: none;
+	color: #EFFFCD;
+	font-weight: bold;
+	height: 23px;
+	padding: 7px 10px 0 10px;
+	display: block;
+	margin-left: 10px;
+	border-radius: 10px 10px 0 0;
+}
+#header ul li a:hover {
+	color: #2E2633;
+}
+#header ul li a.active {
+	color: #2E2633;
+	font-weight: bold;
+	background: #EFFFCD;
+}
+
 .center {
 	margin: 0 auto;
 	width: 50%;
-}
-
-.tellmemore {
-	float: right;
-	color: #fff;
-	font-size: 85%;
-	font-family: arial black;
-	padding: 4px 6px;
-	margin: 10px;
-	text-align: center;
-	text-shadow: 1px 1px 3px #000;
-	border-radius: 7px;
-	box-shadow: 2px 2px 7px #630F28;
-	cursor: pointer;
-	text-transform: uppercase;
-	background-color: #DCE9BE;
-	text-decoration: none;
-}
-
-.tellmemore:hover {
-	background-color: #EFFFCD;
 }
 
 form {
