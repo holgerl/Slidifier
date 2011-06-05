@@ -52,8 +52,8 @@ var processSlideSource = function(slideSrc) {
 				break;
 			case "heading":
 				var lvl = countNumberOf("#",tokens[i].keyword);
-				var class = tokens[i].addClass != undefined ? " class='"+tokens[i].addClass+"'" : "";
-				slide += "<h"+lvl+class+">"+tokens[i].body+"</h"+lvl+">";
+				var clazz = tokens[i].addClass != undefined ? " class='"+tokens[i].addClass+"'" : "";
+				slide += "<h"+lvl+clazz+">"+tokens[i].body+"</h"+lvl+">";
 				break;
 			case "codemark":
 				slide += "<pre class='prettyprint'>\n";

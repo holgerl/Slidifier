@@ -65,11 +65,11 @@ function applyOnlyHeaders(tokenSlide) {
 	}
 }
 
-function addClass(token, class) {
+function addClass(token, clazz) {
 	if (token.addClass != undefined) {
 		token.addClass += " ";
 	} else {
 		token.addClass = "";
 	}
-	token.addClass += class;
+	token.addClass += clazz;
 }
