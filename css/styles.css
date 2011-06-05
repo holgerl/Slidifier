@@ -15,6 +15,14 @@ p {
 	margin-bottom: 1.25em;
 }
 
+a {
+	text-decoration: none;
+	color: #99173C;
+}
+a:hover {
+	text-decoration: underline;
+}
+
 #srcForm {
 	margin-left: auto; margin-right: auto; width: 50%;
 }
@@ -78,7 +86,7 @@ textarea {
 	margin-left: 10px;
 }
 
-input#submitButton {
+.slidifierbutton {
 	font-size: 1.5em;
 	margin-top: 17px;
 	padding: 10px 15px;
@@ -89,6 +97,7 @@ input#submitButton {
 	float: right;
 	text-transform: uppercase;
 	letter-spacing: 1px;
+	text-decoration: none;
 	background: #4E4653;
 	background: -moz-linear-gradient(
 		top,
@@ -123,7 +132,8 @@ input#submitButton {
 		0px 1px 0px rgba(255,255,255,0.3);
 }
 
-input#submitButton:hover {
+.slidifierbutton:hover {
+text-decoration: none;
 	background: #99173C;
 	background: -moz-linear-gradient(
 		top,
@@ -141,6 +151,16 @@ input#submitButton:hover {
 		to(#69071C)
 	);
 	border: 1px solid #Bd5876;
+}
+
+.frontpagebutton {
+	float: none;
+	margin: 0 auto;
+	width: 265px;
+	display: block;
+	text-align: center;
+	width: 400px;
+	padding: 20px;
 }
 
 label#whitelabel,
@@ -207,49 +227,20 @@ div.frontpagecontainer h2 {
 	margin-top: 1.25em;
 }
 
-div.frontpagebox {
-	font-family: georgia;
-	border: 1px solid #555152;
-	text-shadow: 2px 2px 2px #222; border-radius: 5px; box-shadow: 3px 3px 5px #333;
-	cursor: pointer;
-	float: right;
-	text-transform: uppercase;
-	padding: 20px 0;
-	margin: 20px 0;
-	width: 720px;
-}
-
-a.noline {
-	text-decoration: none;
-}
-
-div.upperbox {
-	background-color: #2E2633;
-}
-
-div.upperbox h2 {
-	color: #fff;
-}
-
-div.lowerbox {
-	background-color: #4E4653;
-}
-
-div.lowerbox h2 {
-	color: #eee;
-}
-
-div.frontpagebox:hover {
-	background-color: #99173C;
-}
-
-div.frontpagebox h2 {
-	font-family: georgia;
+.tagline {
+	color: #555555;
+	font-size: 1.5em;
 	font-style: italic;
-	font-size: 2em;
-	text-align: center; 
-	margin: 10px;
-	text-shadow: 2px 2px 2px #222;
+	font-weight: bold;
+	line-height: 1.5em;
+	text-align: center;
+}
+.helpline {
+	color: #555555;
+	font-size: 0.8em;
+	font-style: italic;
+	margin-top: 50px;
+	text-align: center;
 }
 
 div.grippie {
