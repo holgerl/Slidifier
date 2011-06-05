@@ -12,6 +12,7 @@ body {
 
 p {
 	font-size: 1.1em;
+	margin-bottom: 1.25em;
 }
 
 #srcForm {
@@ -169,6 +170,9 @@ span.small {
 
 div.frontpagecontainer {
 	margin-left: auto; margin-right: auto; width: 50%;
+}
+div.frontpagecontainer h2 {
+	margin-top: 1.25em;
 }
 
 div.frontpagebox {
