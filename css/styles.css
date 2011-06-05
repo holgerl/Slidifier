@@ -57,10 +57,10 @@ a:hover {
 }
 #header ul li a:hover {
 	color: #2E2633;
+	background: #EFFFCD;
 }
 #header ul li a.active {
 	color: #2E2633;
-	font-weight: bold;
 	background: #EFFFCD;
 }
 
