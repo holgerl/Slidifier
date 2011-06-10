@@ -6,6 +6,10 @@ div.frontpagecontainer {
 	text-align: left;
 }
 
+div.centeredcontent {
+	text-align: center;
+}
+
 #header {
 	padding-top: 10px;
 }
