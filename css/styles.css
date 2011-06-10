@@ -8,6 +8,7 @@ body {
 	color: #2E2633;
 	margin: 0;
 	padding: 0;
+	text-align: center;
 }
 
 p {
@@ -133,7 +134,7 @@ textarea {
 }
 
 .slidifierbutton:hover {
-text-decoration: none;
+	text-decoration: none;
 	background: #99173C;
 	background: -moz-linear-gradient(
 		top,
