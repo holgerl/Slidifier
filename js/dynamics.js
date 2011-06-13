@@ -21,13 +21,6 @@ function divideIntoSlides(tokens) {
 		}
 	}
 	
-	//for (var i in slideTokens) {
-	//	console.log("#slideToken")
-	//	for (var j in slideTokens[i]) {
-	//		console.log(slideTokens[i][j]);
-	//	}
-	//}
-	
 	return tokenSlides;
 }
 
@@ -52,8 +45,6 @@ function applyOnlyHeaders(tokenSlide) {
 			onlyHeaders = false;
 		}
 	}
-	
-	console.log("onlyHeaders: "+onlyHeaders);
 	
 	if (onlyHeaders) {
 		for (var i in tokenSlide) {

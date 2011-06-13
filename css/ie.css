@@ -2,7 +2,8 @@ body {
 	text-align: center;
 }
 
-div.frontpagecontainer {
+div.frontpagecontainer,
+div#slide {
 	text-align: left;
 }
 

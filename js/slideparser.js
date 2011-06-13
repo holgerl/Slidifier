@@ -11,10 +11,6 @@ var processSlideSource = function(slideSrc) {
 	
 	tokens = applyDynamics(tokens);
 	
-	for (var i in tokens) {
-		console.log(tokens[i]);
-	}
-	
 	var slide = "";
 	slides = new Array();
 	
@@ -65,8 +61,6 @@ var processSlideSource = function(slideSrc) {
 			case "catchall":
 				slide += tokens[i].body+"\n";
 				break;
-			default:
-				console.log("WARNING!!!");
 		}
 	}
 	
@@ -78,10 +72,6 @@ var processSlideSource = function(slideSrc) {
 	}
 	
 	slides.push(slide);
-	
-	for (var i in slides) {
-		console.log(slides[i]);
-	}
 	
 	return slides;
 }
@@ -105,9 +95,6 @@ var tokenize = function(line) {
 				body: match[regexes[i][3]],
 				line: line
 			};
-		}
-		if (i == regexes.length-1) {
-			console.log("DANGER!!!");
 		}
 	}
 }
