@@ -24,16 +24,28 @@ function updateClock() {
 	$('#clock').html(hours + ":" + minutes);
 }
 
+function slideForward() {
+	if (slideCounter < slides.length-1) {
+		slideCounter++;
+		refresh();
+	}
+}
+
+function slideBackward() {
+	if (slideCounter > 0) {
+		slideCounter--;
+		refresh();
+	}
+}
+
 $(document).keydown(function(e) {
 	if (refreshed && $("#slide").is(':visible')) {
 		if (e.keyCode == 37) {
-			slideCounter--;
-			refresh();
+			slideBackward();
 			return false;
 		}
 		if (e.keyCode == 39) {
-			slideCounter++;
-			refresh();
+			slideForward();
 			return false;
 		}
 		if (e.keyCode == 27) {
@@ -45,8 +57,7 @@ $(document).keydown(function(e) {
 
 $(document).mousedown(function(e) {
 	if (e.which == 1 && $("#slide").is(':visible')) {
-		slideCounter++;
-		refresh();
+		slideForward();
 	}
 });
 
