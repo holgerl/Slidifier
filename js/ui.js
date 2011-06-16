@@ -62,10 +62,16 @@ $(document).mousedown(function(e) {
 });
 
 function loadTheme() {
+	themeName = $("input[@name='theme']:checked").val();	
+	var head = document.getElementsByTagName('head')[0];
+	
 	if(themeDom !== undefined) {
-		themeDom.remove();
+		head.removeChild(themeDom);
 	}
-	themeName = $("input[@name='theme']:checked").val();
-	themeDom = $("<link rel='stylesheet' type='text/css' href='css/themes/" + themeName + "/theme.css' />");
-	$('head').append(themeDom);
+	
+	themeDom = document.createElement('link');
+	themeDom.setAttribute("rel", "stylesheet");
+	themeDom.setAttribute("type", "text/css");
+	themeDom.setAttribute("href", "css/themes/" + themeName + "/theme.css");
+	head.appendChild(themeDom);
 }
