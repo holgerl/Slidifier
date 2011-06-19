@@ -135,5 +135,5 @@ function unescapeWhitelist(str) {
 }
 
 function endOfShowSlide() {
-	return "<p class='endnote'>End of presentation</p><p class='endtip'>(press <strong>ESC</strong> to exit)</p><p class='endcredit'>Powered by Slidifier</p>";
+	return "<p class='endnote'>End of presentation</p><p class='endtip'>(press <strong>ESC</strong> to exit)</p><p class='endcredit'>Made with Slidifier</p>";
 }
