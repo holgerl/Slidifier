@@ -17,6 +17,7 @@ test('escapeTags()', function() {
 
 var testProcessSlideSource = function(description, inputString, outputArray) {
 	test('processSlideSource() '+description, function() { 
+		outputArray.push(endOfShowSlide());
 		same(processSlideSource(inputString), outputArray);
 	});
 }
