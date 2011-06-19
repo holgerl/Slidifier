@@ -1,10 +1,20 @@
-/* http://www.colourlovers.com/palette/848743/(◕_”_◕) */
+/* http://www.colourlovers.com/palette/848743/(?_”_?) */
 #slide {
 	background: #16171a url('bg.png') repeat-x left top;
 	color: #eee;
 	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
    	font-weight: 300;
    	font-style: normal;
+}
+
+#slide.endofshow {
+	background-color: #eee;
+	background-image: none;
+	color: #222;
+}
+
+.endcredit {
+	color: #555;
 }
 
 #slide h1, #slide h2, #slide h3, #slide h4, #slide h5, #slide h6 {

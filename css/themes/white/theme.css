@@ -3,6 +3,15 @@
 	color: #222;
 }
 
+#slide.endofshow {
+	background-color: #222;
+	color: #bbb;
+}
+
+.endcredit {
+	color: #999;
+}
+
 #slide li.lvl2 {
 	color: #444;
 }

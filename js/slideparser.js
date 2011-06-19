@@ -73,6 +73,8 @@ var processSlideSource = function(slideSrc) {
 	
 	slides.push(slide);
 	
+	slides.push(endOfShowSlide());
+	
 	return slides;
 }
 
@@ -130,4 +132,8 @@ function unescapeWhitelist(str) {
 	}
 	
 	return str;
+}
+
+function endOfShowSlide() {
+	return "<p class='endnote'>End of presentation</p><p class='endtip'>(press <strong>ESC</strong> to exit)</p><p class='endcredit'>Powered by Slidifier</p>";
 }

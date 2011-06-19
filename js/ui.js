@@ -5,7 +5,17 @@ function refresh() {
 	refreshed = false;
 	slideCounter = Math.max(slideCounter, 0);
 	slideCounter = Math.min(slideCounter, slides.length-1);
-	$('#slidecounter').html(parseInt(slideCounter+1) + "/" + slides.length);
+	
+	$('#slidecounter').html(parseInt(slideCounter+1) + "/" + (slides.length-1));
+	
+	if (slideCounter == slides.length-1) {
+		$('#slidecounter').hide();
+		$('#slide').addClass('endofshow');
+	} else {
+		$('#slidecounter').show();
+		$('#slide').removeClass('endofshow');
+	}
+	
 	$('#slidecontent').fadeOut(10, function() {
 		$('#slidecontent').html(slides[slideCounter]);
 		prettyPrint();
