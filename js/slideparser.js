@@ -1,5 +1,5 @@
 var processSlideSource = function(slideSrc) {
-	var lines = slideSrc.split(/\n/);
+	var lines = cbSplit(slideSrc, /\n/);
 	var tokens = new Array();
 	
 	for (var i in lines) {
@@ -97,18 +97,6 @@ var tokenize = function(line) {
 			};
 		}
 	}
-}
-
-var processTitleSlide = function(slide) {
-	var headers = slide.split(/\n/);
-	var result = "";
-	for (var i in headers) {
-		var level = parseInt(i)+1;
-		if (headers[i].length > 0) {
-			result += "<h"+level+" class='titleslide'>"+headers[i]+"</h"+level+">";
-		}
-	}
-	return result;
 }
 
 var removeEmptyLinesAroundSlidedelimiters = function(tokens) {

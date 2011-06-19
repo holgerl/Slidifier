@@ -18,6 +18,12 @@ $(document).ready(function() {
 		slides = $('textarea[name=slides_src]').val();
 		slides = processSlideSource(slides);
 		
+		if (isIE()) {
+			for (var i in slides) {
+				slides[i] = slides[i].replace(/\n/g, "<br/>");
+			}
+		}
+		
 		slideCounter = 0;
 		
 		refresh();
@@ -38,3 +44,10 @@ $(document).ready(function() {
 	});
 
 });
+
+function isIE() {
+	if (navigator.userAgent.indexOf('MSIE') !=-1) {
+		return true;
+	}
+	return false;
+}
