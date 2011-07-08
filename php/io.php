@@ -1,81 +1,65 @@
 <?php 
 
-	function connectToDB() {
-		$connection = mysql_connect("localhost", "root", ""); 
+	function getDBConnection() {
+		// Note: Modern PHP engines automatically frees connections
 		
+		$connection = mysql_connect("localhost", "root", ""); 
 		$success = mysql_select_db("slidifier", $connection); 
 		
-		if (!$success) {
-			print("ERROR on DB connection");
+		if (!$connection || !$success) {
+			throw new Exception("ERROR when connecting to DB");
 		}
 		
 		return $connection;
 	}
 	
-	function disconnectFromDB($connection) {
-		mysql_close($connection);
-	}
-	
-	function getSlideshowsForFacebookId($facebookId) {
-		$connection = connectToDB();
+	function dbGetQueryResult($sql) {
+		getDBConnection();
 		
-		$result = mysql_query("SELECT src FROM facebook_id_slideshows, slideshows WHERE facebook_id_slideshows.facebook_id = '" . mysql_real_escape_string($facebookId) . "' AND facebook_id_slideshows.slideshow_id = slideshows.id;");
+		$result = mysql_query($sql);
 		
 		if (!$result) {
-			print("ERROR on SQL query");
+			throw new Exception("ERROR when doing SQL query");
 		}
 		
-		$slideshows = array();
+		return $result;
+	}
+	
+	function dbReadRow($sql) {
+		$result = dbGetQueryResult($sql);
 		
-		while($row = mysql_fetch_array($result)) {
-			array_push($slideshows, $row['src']);
-		}
+		$row = mysql_fetch_array($result);
 		
 		mysql_free_result($result);
 		
-		disconnectFromDB($connection);
+		return $row;
+	}
+	
+	function dbWrite($sql) {
+		dbGetQueryResult($sql);
+	}
+	
+	function dbCountRows($sql) {
+		$result = dbGetQueryResult($sql);
 		
-		return $slideshows;
+		return mysql_num_rows($result);
+	}
+	
+	function dbEscape($str) {
+		getDBConnection();
+		return mysql_real_escape_string($str);
 	}
 	
 	function getSlideshow($slideshowId) {
-		$connection = connectToDB();
+		$row = dbReadRow("SELECT src FROM slideshows WHERE id = '" . dbEscape($slideshowId) . "';");
 		
-		$result = mysql_query("SELECT src FROM slideshows WHERE id = '" . mysql_real_escape_string($slideshowId) . "';");
-		
-		if (!$result) {
-			print("ERROR on SQL query");
-		}
-		
-		$row = mysql_fetch_array($result);
-		
-		$slideshow = $row['src'];
-		
-		mysql_free_result($result);
-		
-		disconnectFromDB($connection);
-		
-		return $slideshow;
+		return $row['src'];
 	}
 	
 	function isCorrectKey($slideshowId, $slideshowKey) {
-		$connection = connectToDB();
+		$row = dbReadRow("SELECT admin_key FROM slideshows WHERE id = '" . dbEscape($slideshowId) . "';");
 		
-		$result = mysql_query("SELECT admin_key FROM slideshows WHERE id = '" . mysql_real_escape_string($slideshowId) . "';");
-		
-		if (!$result) {
-			print("ERROR on SQL query");
-		}
-		
-		$row = mysql_fetch_array($result);
-		
-		$key = $row['slide_key'];
-		
-		mysql_free_result($result);
-		
-		disconnectFromDB($connection);
-		
-		return $key == $slideshowKey;
+		return $row['admin_key'] == $slideshowKey;
 	}
 	
 	function getQueryElements() {
@@ -106,47 +90,17 @@
 	}
 	
 	function updateSlideshow($slideshowId, $slideshowToSave) {
-		$connection = connectToDB();
-		
-		$result = mysql_query("UPDATE slideshows SET src='" . mysql_real_escape_string($slideshowToSave) . "' WHERE id='" . mysql_real_escape_string($slideshowId) . "';");
-		
-		if (!$result) {
-			print("ERROR on SQL query");
-		}
-		
-		mysql_free_result($result);
-		
-		disconnectFromDB($connection);
+		dbWrite("UPDATE slideshows SET src='" . dbEscape($slideshowToSave) . "' WHERE id='" . dbEscape($slideshowId) . "';");
 	}
 	
 	function createEmptySlideshow($slideshowId, $slideshowKey) {
-		$connection = connectToDB();
-		
-		$result = mysql_query("INSERT INTO slideshows (id, admin_key, src) VALUES ('" . $slideshowId . "', '" . $slideshowKey . "', '');");
-		
-		if (!$result) {
-			print("ERROR on SQL query");
-		}
-		
-		disconnectFromDB($connection);
+		dbWrite("INSERT INTO slideshows (id, admin_key, src) VALUES ('" . dbEscape($slideshowId) . "', '" . dbEscape($slideshowKey) . "', '');");
 	}
 	
 	function doesIdExist($slideshowId) {
-		$connection = connectToDB();
+		$count = dbCountRows("SELECT id FROM slideshows WHERE id='" . dbEscape($slideshowId) . "';");
 		
-		$result = mysql_query("SELECT id FROM slideshows WHERE id='" . mysql_real_escape_string($slideshowId) . "';");
-		
-		if (!$result) {
-			print("ERROR on SQL query");
-		}
-		
-		$row = mysql_fetch_array($result);
-		
-		mysql_free_result($result);
-		
-		disconnectFromDB($connection);
-		
-		return !($row === false);
+		return $count > 0;
 	}
 	
 	function generateUniqueId() {
@@ -203,6 +157,8 @@
 			$slideshowToSave = $_POST['src'];
 			if (isCorrectKey($slideshowId, $slideshowKey)) {
 				updateSlideshow($slideshowId, $slideshowToSave);
+			} else {
+				throw new Exception("ERROR key is wrong");
 			}
 		}
 		
@@ -218,9 +174,15 @@
 		return false;
 	}
 	
-	$responseWritten = main();
+	$responseWritten = false;
 	
-	// TODO: Remove duplicated code for every sql query execution.
+	try {
+		$responseWritten = main();
+	} catch (Exception $e) {
+		$errorInfo = array('error' => 'error', 'message' => $e->getMessage());
+	    print(json_encode($errorInfo));
+	    $responseWritten = true;
+	}
 ?>
 
 <?php if (!$responseWritten): ?>
