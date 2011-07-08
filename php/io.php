@@ -81,7 +81,7 @@
 		
 		$id;
 		do {
-			$id = generateRandomString();
+			$id = generateRandomLegibleString();
 		} while (doesIdExist($id));
 		
 		return $id;
@@ -96,7 +96,7 @@
 		return $fromThis;
 	}
 	
-	function generateRandomString() {
+	function generateRandomLegibleString() {
 		
 		// alphabet of 51 characters makes 10 character strings at least 56 bits:
 		$length = 10;
@@ -145,7 +145,7 @@
 		
 		if (isset($_POST['create']))  {
 			$id = generateUniqueId();
-			$key = generateRandomString();
+			$key = generateRandomLegibleString();
 			createEmptySlideshow($id, $key);
 			$idAndKey = array('id' => $id, 'admin_key' => $key);
 			sendJSONResponse(json_encode($idAndKey));
@@ -168,7 +168,16 @@
 
 <?php if (!$responseWritten): ?>
 	<html>
+		<head>
+			<style type="text/css">
+				form {margin: 10px; padding: 10px; border: 1px dotted gray;}
+			</style>
+		</head>
 		<body>
+			<form method="GET">
+				<label for="id">id:</label> <input type="text" name="id" id="id"/> <input type="submit" value="Read slideshow"/>
+			</form>
+		
 			<form method="POST">
 				<table>
 					<tr>
@@ -186,7 +195,7 @@
 					<tr>
 						<td><input type="submit" value="Update slideshow"/></td>
 					</tr>
-				<table>
+				</table>
 			</form>
 			
 			<form method="POST">
