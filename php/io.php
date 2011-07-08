@@ -1,7 +1,7 @@
 <?php 
 
 	function getDBConnection() {
-		// Note: Modern PHP engines automatically frees connections
+		// Note: Modern PHP engines automatically free connections
 		
 		$connection = mysql_connect("localhost", "root", ""); 
 		$success = mysql_select_db("slidifier", $connection); 
@@ -62,33 +62,6 @@
 		return $row['admin_key'] == $slideshowKey;
 	}
 	
-	function getQueryElements() {
-		$escapedPath = htmlspecialchars($_SERVER['REQUEST_URI']);
-		
-		$queryElements = array();
-		
-		if (!(strpos($escapedPath, "?") === false)) {
-			$split = preg_split("/\?/", $escapedPath);
-			$queryPart = $split[1];
-			
-			if (!(strpos($escapedPath, "+") === false)) {
-				$queryElements = preg_split("/\+/", $queryPart);
-			} else {
-				$queryElements = array($queryPart);
-			}
-		}
-		
-		$cleanedQueryElements = array();
-		
-		foreach($queryElements as $value) {
-			if(strlen(trim($value)) > 0) {
-				array_push($cleanedQueryElements, $value);
-			}
-		}
-		
-		return $cleanedQueryElements;
-	}
-	
 	function updateSlideshow($slideshowId, $slideshowToSave) {
 		dbWrite("UPDATE slideshows SET src='" . dbEscape($slideshowToSave) . "' WHERE id='" . dbEscape($slideshowId) . "';");
 	}
@@ -140,14 +113,19 @@
 		
 		return join($randomString);
 	}
+	
+	function sendJSONResponse($json) {
+		header("Content-type: application/json");
+		print($json);
+	}
 
 	function main() {
-		$queryElements = getQueryElements();
 		
-		if (count($queryElements) > 0) {
-			$slideshowId = $queryElements[0];
-			$slideshow = array('id' => $slideshowId, 'src' => getSlideshow($slideshowId));
-			print(json_encode($slideshow));
+		if (isset($_GET['id'])) {
+			$slideshowId = $_GET['id'];
+			$slideshowSrc = getSlideshow($slideshowId);
+			$slideshow = array('id' => $slideshowId, 'src' => $slideshowSrc);
+			sendJSONResponse(json_encode($slideshow));
 			return true;
 		}
 		 
@@ -160,6 +138,9 @@
 			} else {
 				throw new Exception("ERROR key is wrong");
 			}
+			$result = array('id' => $slideshowId);
+			sendJSONResponse(json_encode($result));
+			return true;
 		}
 		
 		if (isset($_POST['create']))  {
@@ -167,7 +148,7 @@
 			$key = generateRandomString();
 			createEmptySlideshow($id, $key);
 			$idAndKey = array('id' => $id, 'admin_key' => $key);
-			print(json_encode($idAndKey));
+			sendJSONResponse(json_encode($idAndKey));
 			return true;
 		}
 		
@@ -180,24 +161,38 @@
 		$responseWritten = main();
 	} catch (Exception $e) {
 		$errorInfo = array('error' => 'error', 'message' => $e->getMessage());
-	    print(json_encode($errorInfo));
+	    sendJSONResponse(json_encode($errorInfo));
 	    $responseWritten = true;
 	}
 ?>
 
 <?php if (!$responseWritten): ?>
-	<form method="POST">
-		id: <input type="text" name="id"/>
-		<br/>
-		key: <input type="text" name="admin_key"/>
-		<br/>
-		slideshow: <textarea name="src"></textarea>
-		<br/>
-		<input type="submit" value="Update slideshow"/>
-	</form>
-	<br/>
-	<form method="POST">
-		<input type="hidden" name="create"/>
-		<input type="submit" value="Create empty slideshow"/>
-	</form>
+	<html>
+		<body>
+			<form method="POST">
+				<table>
+					<tr>
+						<td><label for="id">id:</label></td>
+						<td><input type="text" name="id" id="id"/></td>
+					</tr>
+					<tr>
+						<td><label for="admin_key">admin_key:</label></td>
+						<td><input type="text" name="admin_key" id="admin_key"/></td>
+					</tr>
+					<tr>
+						<td><label for="src">src:</label></td>
+						<td><textarea name="src" id="src"></textarea></td>
+					</tr>
+					<tr>
+						<td><input type="submit" value="Update slideshow"/></td>
+					</tr>
+				<table>
+			</form>
+			
+			<form method="POST">
+				<input type="hidden" name="create"/>
+				<input type="submit" value="Create empty slideshow"/>
+			</form>
+		</body>
+	</html>
 <?php endif ?>
