@@ -32,11 +32,11 @@ $(function(){
 	if (slideshowId != undefined && slideshowKey == undefined) {
 		$('textarea[name=slides_src]').attr('readonly', 'readonly');
 		$('textarea[name=slides_src]').addClass('readonly');
-		$('#saveButton').addClass('readonly');
+		$('#saveButton').hide();
 	} else if (slideshowId != undefined && slideshowKey != undefined || slideshowId == undefined && slideshowKey == undefined) {
 		$('textarea[name=slides_src]').removeAttr('readonly');
 		$('textarea[name=slides_src]').removeClass('readonly');
-		$('#saveButton').removeClass('readonly');
+		$('#saveButton').show();
 	}
 	
 	if (slideshowId != undefined && slideshowKey != undefined) {
