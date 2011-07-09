@@ -39,6 +39,22 @@ $(function(){
 		$('#saveButton').removeClass('readonly');
 	}
 	
+	if (slideshowId != undefined && slideshowKey != undefined) {
+		var fullBaseUrl = "http://" + $.url().attr('host') + $.url().attr('path')
+		var fullAdminUrl = fullBaseUrl + "?id="+slideshowId+"&admin_key="+slideshowKey;
+		var fullShareUrl = fullBaseUrl + "?id="+slideshowId;
+		var shortBaseUrl = $.url().attr('host') + $.url().attr('path')
+		var shortAdminUrl = shortBaseUrl + "?id="+slideshowId+"&admin_key="+slideshowKey;
+		var shortShareUrl = shortBaseUrl + "?id="+slideshowId;
+		$('#admin-url').html(shortAdminUrl);
+		$('#admin-url').attr("href", fullAdminUrl);
+		$('#share-url').html(shortShareUrl);
+		$('#share-url').attr("href", fullShareUrl);
+		$('#urls').show();
+	} else {
+		$('#urls').hide();
+	}
+	
 	$('#saveButton').click(function(e) {
 		if (slideshowId == undefined) {
 			createEmptySlideshowAndSaveInDB();

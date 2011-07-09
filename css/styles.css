@@ -27,12 +27,31 @@ a:hover {
 	margin-left: auto; margin-right: auto; width: 800px;
 }
 
+#urls {
+	margin-left: auto;
+	margin-right: auto;
+	width: 770px;
+	margin-bottom: 25px;
+	box-shadow: 3px 3px 10px #666;
+	background-color: #EFFFCD;
+	padding: 15px;
+	padding-bottom: 5px;
+}
+
+#urls a {
+	font-size: 75%; margin-left: 10px;
+}
+
+#urls div {
+	margin-bottom: 10px;
+}
+
 #header {
 	background-color: #99173C;
 	height: 70px;
 	padding: 0px;
 	border-bottom: 5px solid #EFFFCD;
-	margin-bottom: 50px;
+	margin-bottom: 40px;
 }
 #logo {
 	padding: 7px;
@@ -74,7 +93,7 @@ form {
 }
 
 textarea {
-	width: 100%; height: 400px; padding: 5px 0px 0px 5px; margin-bottom: 10px;
+	width: 100%; height: 370px; padding: 5px 0px 0px 5px; margin-bottom: 10px;
 	border: 1px solid #eeeeee;
 }
 
@@ -209,10 +228,10 @@ textarea.readonly {
 
 input.readonly,
 input.readonly:hover {
-	background: #888;
-	color: #666;
-	border-color: #888;
-	cursor: auto;
+	background: #888 !important;
+	color: #666 !important;
+	border-color: #888 !important;
+	cursor: auto !important;
 }
 
 .frontpagebutton {
