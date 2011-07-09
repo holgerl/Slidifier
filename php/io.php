@@ -1,12 +1,11 @@
-<?php 
+<?php
 
 	function getDBConnection() {
 		// Note: Modern PHP engines automatically free connections
-		
-		$dbConfig = parse_ini_file("../conf/db.ini");
+		include 'conf/db.php';
 		
 		$connection = mysql_connect($dbConfig['db_host'], $dbConfig['db_user'], $dbConfig['db_password']); 
-		$success = mysql_select_db("slidifier", $connection); 
+		$success = mysql_select_db($dbConfig['db_name'], $connection); 
 		
 		if (!$connection || !$success) {
 			throw new Exception("ERROR when connecting to DB");
