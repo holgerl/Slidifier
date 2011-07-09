@@ -78,6 +78,13 @@ textarea {
 	border: 1px solid #eeeeee;
 }
 
+textarea.readonly {
+	background-color: #ddd;
+	color: #333;
+	cursor: auto;
+	border-color: #bbb;
+}
+
 #themePicker {
 	float: left;
 	margin-top: 25px;
@@ -87,6 +94,7 @@ textarea {
 }
 
 .slidifierbutton {
+	margin-left: 15px;
 	font-size: 1.5em;
 	margin-top: 17px;
 	padding: 10px 15px;
@@ -151,6 +159,14 @@ textarea {
 		to(#69071C)
 	);
 	border: 1px solid #Bd5876;
+}
+
+input.readonly,
+input.readonly:hover {
+	background: #888;
+	color: #666;
+	border-color: #888;
+	cursor: auto;
 }
 
 .frontpagebutton {
