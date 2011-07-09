@@ -171,6 +171,7 @@
 		<head>
 			<style type="text/css">
 				form {margin: 10px; padding: 10px; border: 1px dotted gray;}
+				body {font-family: monospace;}
 			</style>
 		</head>
 		<body>
