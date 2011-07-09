@@ -94,7 +94,6 @@ textarea.readonly {
 }
 
 .slidifierbutton {
-	margin-left: 15px;
 	font-size: 1.5em;
 	margin-top: 17px;
 	padding: 10px 15px;
@@ -157,6 +156,53 @@ textarea.readonly {
 		center bottom, 
 		from(#99173C), 
 		to(#69071C)
+	);
+	border: 1px solid #Bd5876;
+}
+
+#saveButton {
+	padding: 5px 10px;
+	font-size: 1.15em;
+	margin-right: 20px;
+	background: #6E6673;
+	text-transform: lowercase;
+	background: -moz-linear-gradient(
+		top,
+		#6E6673 0%,
+		#4E4653
+	);
+	background: -o-linear-gradient(
+		top,
+		#6E6673 0%,
+		#4E4653
+	);
+	background: -webkit-gradient(
+		linear, 
+		center top, 
+		center bottom, 
+		from(#6E6673), 
+		to(#4E4653)
+	);
+	border: 1px solid #757172;
+	color: #eee;
+}
+
+#saveButton:hover {
+	background: #B9375C;
+	background: -moz-linear-gradient(
+		top,
+		#B9375C 0%,
+		#89273C);
+	background: -o-linear-gradient(
+		top,
+		#B9375C 0%,
+		#89273C);
+	background: -webkit-gradient(
+		linear, 
+		center top, 
+		center bottom, 
+		from(#B9375C), 
+		to(#89273C)
 	);
 	border: 1px solid #Bd5876;
 }
