@@ -3,7 +3,9 @@
 	function getDBConnection() {
 		// Note: Modern PHP engines automatically free connections
 		
-		$connection = mysql_connect("localhost", "root", ""); 
+		$dbConfig = parse_ini_file("../conf/db.ini");
+		
+		$connection = mysql_connect($dbConfig['db_host'], $dbConfig['db_user'], $dbConfig['db_password']); 
 		$success = mysql_select_db("slidifier", $connection); 
 		
 		if (!$connection || !$success) {
@@ -52,13 +54,11 @@
 	
 	function getSlideshow($slideshowId) {
 		$row = dbReadRow("SELECT src FROM slideshows WHERE id = '" . dbEscape($slideshowId) . "';");
-		
 		return $row['src'];
 	}
 	
 	function isCorrectKey($slideshowId, $slideshowKey) {
 		$row = dbReadRow("SELECT admin_key FROM slideshows WHERE id = '" . dbEscape($slideshowId) . "';");
-		
 		return $row['admin_key'] == $slideshowKey;
 	}
 	
@@ -72,7 +72,6 @@
 	
 	function doesIdExist($slideshowId) {
 		$count = dbCountRows("SELECT id FROM slideshows WHERE id='" . dbEscape($slideshowId) . "';");
-		
 		return $count > 0;
 	}
 	
@@ -97,7 +96,6 @@
 	}
 	
 	function generateRandomLegibleString() {
-		
 		// alphabet of 51 characters makes 10 character strings at least 56 bits:
 		$length = 10;
 		$fullAlphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
@@ -120,7 +118,6 @@
 	}
 
 	function main() {
-		
 		if (isset($_GET['id'])) {
 			$slideshowId = $_GET['id'];
 			$slideshowSrc = getSlideshow($slideshowId);
