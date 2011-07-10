@@ -40,7 +40,7 @@ $(function(){
 	}
 	
 	if (slideshowId != undefined && slideshowKey != undefined) {
-		var fullBaseUrl = "http://" + $.url().attr('host') + $.url().attr('path')
+		var fullBaseUrl = "http://" + $.url().attr('host') + $.url().attr('path');
 		var fullAdminUrl = fullBaseUrl + "?id="+slideshowId+"&admin_key="+slideshowKey;
 		var fullShareUrl = fullBaseUrl + "?id="+slideshowId;
 		var shortBaseUrl = $.url().attr('host') + $.url().attr('path')
@@ -51,8 +51,10 @@ $(function(){
 		$('#share-url').html(shortShareUrl);
 		$('#share-url').attr("href", fullShareUrl);
 		$('#urls').show();
+		$('#newButton').show();
 	} else {
 		$('#urls').hide();
+		$('#newButton').hide();
 	}
 	
 	$('#saveButton').click(function(e) {
@@ -61,6 +63,11 @@ $(function(){
 		} else if (slideshowId != undefined && slideshowKey != undefined){
 			updateSlidshowInDB(slideshowId, slideshowKey, $('textarea[name=slides_src]').val());
 		}
+	});
+	
+	$('#newButton').click(function(e) {
+		var fullBaseUrl = "http://" + $.url().attr('host') + $.url().attr('path')
+		$(window.location).attr('href', fullBaseUrl);
 	});
 });
 

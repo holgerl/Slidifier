@@ -117,7 +117,7 @@ textarea.readonly {
 	margin-top: 17px;
 	padding: 10px 15px;
 	font-family: georgia;
-	color: white;
+	color: #EFFFCD;
 	text-shadow: 2px 2px 2px #222; border-radius: 5px; box-shadow: 3px 3px 5px #333;
 	cursor: pointer;
 	float: right;
@@ -179,7 +179,7 @@ textarea.readonly {
 	border: 1px solid #Bd5876;
 }
 
-#saveButton {
+.smallButton {
 	padding: 5px 10px;
 	font-size: 1.15em;
 	margin-right: 20px;
@@ -204,9 +204,10 @@ textarea.readonly {
 	);
 	border: 1px solid #757172;
 	color: #eee;
+	font-style: italic;
 }
 
-#saveButton:hover {
+.smallButton:hover {
 	background: #B9375C;
 	background: -moz-linear-gradient(
 		top,
@@ -234,6 +235,10 @@ textarea.readonly {
 	text-align: center;
 	width: 400px;
 	padding: 20px;
+}
+
+#saveButton {
+	color: #E997BC;
 }
 
 label#whitelabel,
