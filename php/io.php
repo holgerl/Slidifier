@@ -53,7 +53,7 @@
 	
 	function getSlideshow($slideshowId) {
 		$row = dbReadRow("SELECT src FROM slideshows WHERE id = '" . dbEscape($slideshowId) . "';");
-		return $row['src'];
+		return reverse_escape($row['src']);
 	}
 	
 	function isCorrectKey($slideshowId, $slideshowKey) {
@@ -92,6 +92,12 @@
 		}
 		
 		return $fromThis;
+	}
+	
+	function reverse_escape($str) {
+	  $search=array("\\\\","\\0","\\n","\\r","\Z","\'",'\"');
+	  $replace=array("\\","\0","\n","\r","\x1a","'",'"');
+	  return str_replace($search,$replace,$str);
 	}
 	
 	function generateRandomLegibleString() {
