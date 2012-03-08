@@ -57,4 +57,5 @@ var slidifier = (function() {
 
 $(document).ready(function() {
 	slidifier.init();
+	io.initIO();
 });
