@@ -77,9 +77,9 @@ var slideparser = (function() {
 		slides.push(endOfShowSlide());
 		
 		return slides;
-	}
+	};
 	
-	var tokenize = function(line) {
+	function tokenize(line) {
 		var regexes = [
 			["slidemark", 	/^\s*(-\s*-\s*-)\s*()$/, 			1, 2],
 			["bullet", 		/^\s*((-\s*)*-)\s*(([^-]|\S)+)$/, 	1, 3],
@@ -102,7 +102,7 @@ var slideparser = (function() {
 		}
 	}
 	
-	var removeEmptyLinesAroundSlidedelimiters = function(tokens) {
+	function removeEmptyLinesAroundSlidedelimiters(tokens) {
 		var without = new Array;
 		for (var i in tokens) {
 			var push = true;
@@ -115,7 +115,7 @@ var slideparser = (function() {
 		return without;
 	}
 	
-	var countNumberOf = function(char, str) {
+	function countNumberOf(char, str) {
 		return str.match(new RegExp(char, "g")).length;
 	}
 	

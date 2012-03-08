@@ -2,7 +2,7 @@ var slidifier = (function() {
 	this.slides;
 	this.slideCounter;
 	
-	var submitHandler = function(event) {
+	function submitHandler(event) {
 		event.preventDefault();
 		
 		var slidesSrc = $('textarea[name=slides_src]').val();
@@ -21,9 +21,9 @@ var slidifier = (function() {
 		loadTheme();
 		
 		showSlideShow();
-	};
+	}
 	
-	var showSlideShow = function() {
+	function showSlideShow() {
 		$("#slideEdit").fadeOut(10, function() {
 			$("#slide").fadeIn(1000, function() {
 				$("#help").slideDown("slow", function() {
@@ -33,11 +33,11 @@ var slidifier = (function() {
 				});
 			});
 		});
-	};
+	}
 	
-	var isIE = function() {
+	function isIE() {
 		return navigator.userAgent.indexOf('MSIE') != -1;
-	};
+	}
 	
 	this.init = function() {
 		$("#slide").hide();
