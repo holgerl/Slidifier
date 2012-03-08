@@ -22,7 +22,7 @@ var io = (function() {
 		}, 'json');
 	}
 	
-	this.initIO = function() {
+	function init() {
 		slideshowId = $.url().param('id');
 		slideshowKey = $.url().param('admin_key');
 	
@@ -72,6 +72,8 @@ var io = (function() {
 		});
 	};
 	
-	return this;
+	return {
+		init: init
+	};
 }());
 

@@ -1,6 +1,4 @@
 var slidifier = (function() {
-	this.slides;
-	this.slideCounter;
 	
 	function submitHandler(event) {
 		event.preventDefault();
@@ -16,9 +14,9 @@ var slidifier = (function() {
 		
 		slideCounter = 0;
 		
-		refresh();
+		ui.refresh();
 		
-		loadTheme();
+		ui.loadTheme();
 		
 		showSlideShow();
 	}
@@ -39,23 +37,28 @@ var slidifier = (function() {
 		return navigator.userAgent.indexOf('MSIE') != -1;
 	}
 	
-	this.init = function() {
+	function init() {
 		$("#slide").hide();
 		$("#urls").hide();
 		$("#help").hide();
 		
 		$('#srcForm textarea').TextAreaResizer();
 		
-		updateClock();
-		setInterval('updateClock()', 1000*60);
+		ui.updateClock();
+		setInterval(ui.updateClock, 1000*60);
 		
 		$("#srcForm").submit(submitHandler);
 	};
 	
-	return this;
+	return {
+		init: init,
+		slides: undefined,
+		slideCounter: undefined
+	};
 })();
 
 $(document).ready(function() {
 	slidifier.init();
-	io.initIO();
+	io.init();
+	ui.init();
 });

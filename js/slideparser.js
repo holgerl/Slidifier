@@ -1,5 +1,5 @@
 var slideparser = (function() {
-	this.processSlideSource = function(slideSrc) {
+	function processSlideSource (slideSrc) {
 		var lines = cbSplit(slideSrc, /\n/);
 		var tokens = new Array();
 		
@@ -10,7 +10,7 @@ var slideparser = (function() {
 		
 		tokens = removeEmptyLinesAroundSlidedelimiters(tokens);
 		
-		tokens = applyDynamics(tokens);
+		tokens = dynamics.applyDynamics(tokens);
 		
 		var slide = "";
 		slides = new Array();
@@ -139,5 +139,15 @@ var slideparser = (function() {
 		return "<p class='endnote'>End of presentation</p><p class='endtip'>(press <strong>ESC</strong> to exit)</p><p class='endcredit'>Made with Slidifier</p>";
 	}
 	
-	return this;
+	var testObject = {
+		countNumberOf: countNumberOf,
+		escapeTags: escapeTags,
+		endOfShowSlide: endOfShowSlide,
+		
+	};
+	
+	return {
+		processSlideSource: processSlideSource,
+		testObject: testObject
+	};
 })();

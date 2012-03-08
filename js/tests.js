@@ -1,24 +1,24 @@
 module('Small functions');
 
 test('countNumberOf()', function() { 
-	equals(countNumberOf("o", "foobar"), 2);
-	equals(countNumberOf("f", "sof sdifhasdfjh"), 3);
-	equals(countNumberOf("/", "//f 77 / ffkkf"), 3);
-	equals(countNumberOf(" ", "eo yiho hoi df "), 4);
+	equals(slideparser.testObject.countNumberOf("o", "foobar"), 2);
+	equals(slideparser.testObject.countNumberOf("f", "sof sdifhasdfjh"), 3);
+	equals(slideparser.testObject.countNumberOf("/", "//f 77 / ffkkf"), 3);
+	equals(slideparser.testObject.countNumberOf(" ", "eo yiho hoi df "), 4);
 });
 
 test('escapeTags()', function() { 
-	equals(escapeTags("klajfhakljfn"), "klajfhakljfn");
-	equals(escapeTags("<test>"), "&lt;test&gt;");
-	equals(escapeTags("<test/>"), "&lt;test/&gt;");
-	equals(escapeTags("<foo>bar</foo>"), "&lt;foo&gt;bar&lt;/foo&gt;");
-	equals(escapeTags("<<"), "&lt;&lt;");
+	equals(slideparser.testObject.escapeTags("klajfhakljfn"), "klajfhakljfn");
+	equals(slideparser.testObject.escapeTags("<test>"), "&lt;test&gt;");
+	equals(slideparser.testObject.escapeTags("<test/>"), "&lt;test/&gt;");
+	equals(slideparser.testObject.escapeTags("<foo>bar</foo>"), "&lt;foo&gt;bar&lt;/foo&gt;");
+	equals(slideparser.testObject.escapeTags("<<"), "&lt;&lt;");
 });
 
 var testProcessSlideSource = function(description, inputString, outputArray) {
 	test('processSlideSource() '+description, function() { 
-		outputArray.push(endOfShowSlide());
-		same(processSlideSource(inputString), outputArray);
+		outputArray.push(slideparser.testObject.endOfShowSlide());
+		same(slideparser.processSlideSource(inputString), outputArray);
 	});
 }
 
