@@ -4,15 +4,15 @@ var slidifier = (function() {
 		event.preventDefault();
 		
 		var slidesSrc = $('textarea[name=slides_src]').val();
-		slides = slideparser.processSlideSource(slidesSrc);
+		ui.slides = slideparser.processSlideSource(slidesSrc);
 		
 		if (isIE()) {
-			for (var i in slides) {
-				slides[i] = slides[i].replace(/\n/g, "<br/>");
+			for (var i in ui.slides) {
+				ui.slides[i] = ui.slides[i].replace(/\n/g, "<br/>");
 			}
 		}
 		
-		slideCounter = 0;
+		ui.slideCounter = 0;
 		
 		ui.refresh();
 		
@@ -51,9 +51,7 @@ var slidifier = (function() {
 	};
 	
 	return {
-		init: init,
-		slides: undefined,
-		slideCounter: undefined
+		init: init
 	};
 })();
 

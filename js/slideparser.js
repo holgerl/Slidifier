@@ -13,7 +13,7 @@ var slideparser = (function() {
 		tokens = dynamics.applyDynamics(tokens);
 		
 		var slide = "";
-		slides = new Array();
+		var slides = new Array();
 		
 		var inCode = false;
 		var inList = false;
