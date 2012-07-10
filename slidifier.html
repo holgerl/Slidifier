@@ -17,6 +17,7 @@
 	
 	<script type="text/javascript" src="lib/jquery-1.7.1.min.js"></script>
 	<script type="text/javascript" src="lib/jquery-urlparser/jquery.url.js"></script>
+	<script type="text/javascript" src="lib/jquery-fieldselection/jquery-fieldselection.min.js"></script>
 	<script type="text/javascript" src="lib/prettify/prettify.js"></script>
 	<script type="text/javascript" src="lib/resizer/jquery.textarearesizer.js"></script>
 	<script type="text/javascript" src="lib/cbsplit/cbsplit.js"></script>
@@ -26,16 +27,16 @@
 	<script type="text/javascript" src="js/dynamics.js"></script>
 	<script type="text/javascript" src="js/slideparser.js"></script>
 	<script type="text/javascript" src="js/slidifier.js"></script>
+	<script type="text/javascript" src="js/slideeditor.js"></script>
 	
 	<link rel="icon" type="image/gif" href="favicon.gif">
 	<link rel="shortcut icon" href="favicon.gif">
 	
+	<!-- Google Analytics -->
 	<script type="text/javascript">
-		// Google Analytics
 		var _gaq = _gaq || [];
 		_gaq.push(['_setAccount', 'UA-23947561-1']);
 		_gaq.push(['_trackPageview']);
-		
 		(function() {
 			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
 			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
@@ -71,7 +72,11 @@
 		</div>
 		
 		<form id="srcForm" action="" method="post">
-			<textarea name="slides_src">
+			<input type="button" value="# Heading" id="headingbutton"/>
+			<input type="button" value="- List" id="listbutton"/>
+			<input type="button" value="--- New slide" id="newslidebutton"/>
+
+			<textarea name="slides_src" id="slidesSrc">
 # Slidifier
 
 Slidifier is a simple tool for creating presentations.
@@ -91,7 +96,7 @@ No gimmicks! Just use --- to separate your slides.
 Your text will be slidified into an elegant presentation that works on any machine!
 
 - This is a list of bullet points
-- With Slidifier, you think about WHAT you want to say, not the presentation
+- With Slidifier, you think about WHAT you want to say, not how it looks
 - The rest is magic
 
 ---
