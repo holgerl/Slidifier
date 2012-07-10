@@ -250,6 +250,7 @@ textarea.readonly {
 	margin-bottom: 5px;
 	color: #2E2633;
 	text-shadow: none;
+	text-transform: none;
 	background: #D2CAD7;
 	background: -moz-linear-gradient(
 		top,
