@@ -118,7 +118,9 @@ textarea.readonly {
 	padding: 10px 15px;
 	font-family: georgia;
 	color: #EFFFCD;
-	text-shadow: 2px 2px 2px #222; border-radius: 5px; box-shadow: 3px 3px 5px #333;
+	text-shadow: 2px 2px 2px #222; 
+	border-radius: 5px; 
+	box-shadow: 3px 3px 5px #333;
 	cursor: pointer;
 	float: right;
 	text-transform: uppercase;
@@ -235,6 +237,57 @@ textarea.readonly {
 	text-align: center;
 	width: 400px;
 	padding: 20px;
+}
+
+.editorbutton {
+	float: none;
+	padding: 3px 8px;
+	font-size: 1em;
+	margin-right: 5px;
+	font-family: monospace;
+	font-style: normal;
+	border-radius: 5px;
+	margin-bottom: 5px;
+	color: #2E2633;
+	text-shadow: none;
+	background: #D2CAD7;
+	background: -moz-linear-gradient(
+		top,
+		#D2CAD7 0%,
+		#B2AAB7
+	);
+	background: -o-linear-gradient(
+		top,
+		#D2CAD7 0%,
+		#B2AAB7
+	);
+	background: -webkit-gradient(
+		linear, 
+		center top, 
+		center bottom, 
+		from(#D2CAD7), 
+		to(#B2AAB7)
+	);
+}
+
+.editorbutton:hover {
+	background: #EFFFCD;
+	background: -moz-linear-gradient(
+		top,
+		#EFFFCD 0%,
+		#D0DDB3);
+	background: -o-linear-gradient(
+		top,
+		#EFFFCD 0%,
+		#D0DDB3);
+	background: -webkit-gradient(
+		linear, 
+		center top, 
+		center bottom, 
+		from(#EFFFCD), 
+		to(#D0DDB3)
+	);
+	border: 1px solid #757172;
 }
 
 #saveButton {
