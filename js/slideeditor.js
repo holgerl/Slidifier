@@ -36,27 +36,74 @@ var editor = (function() {
 
 
 $(document).ready(function() {
-	function insertSymbolAtCurrentLine(symbol, startOrEnd) {
+	function insertSymbolAtCurrentLine(symbol, atStartOrEnd) {
 		var currentPosition = $("#slidesSrc").getSelection().start;
 		var allText = $("#slidesSrc").attr("value");
 		var line = editor.getLineAtPosition(allText, currentPosition);
-		if (startOrEnd === "start" && allText[line[startOrEnd]] !== symbol) symbol += ' ';
-		var newText = allText.substr(0, line[startOrEnd]) + symbol + allText.substr(line[startOrEnd], allText.length);
+		if (atStartOrEnd === "start" && allText[line["start"]] !== symbol){
+			symbol += ' ';
+		}
+		var newText = allText.substr(0, line[atStartOrEnd]) + symbol + allText.substr(line[atStartOrEnd], allText.length);
 
 		$("#slidesSrc").attr("value", newText);
+
+		if (atStartOrEnd === "end") {
+			currentPosition = line.end;
+		}
 
 		editor.setCaretPosition(document.getElementById("slidesSrc"), currentPosition+symbol.length);
 	}
 
-	$("#headingbutton").click(function() {
+	function isCurrentLineOnlyWhitespace() {
+		var currentPosition = $("#slidesSrc").getSelection().start;
+		var allText = $("#slidesSrc").attr("value");
+		var line = editor.getLineAtPosition(allText, currentPosition);
+		var lineString = allText.substr(line.start, line.end);
+		return !(/\S/.test(lineString));
+	}
+
+	$("#headingbutton").click(function(event) {
+		event.preventDefault();
 		insertSymbolAtCurrentLine("#", "start");
 	});
 
-	$("#listbutton").click(function() {
+	$("#listbutton").click(function(event) {
+		event.preventDefault();
 		insertSymbolAtCurrentLine("-", "start");
 	});
 
-	$("#newslidebutton").click(function() {
-		insertSymbolAtCurrentLine("\n---\n\n", "end");
+	$("#newslidebutton").click(function(event) {
+		event.preventDefault();
+		var newSlideToken = "---\n\n";
+		if (!isCurrentLineOnlyWhitespace()) {
+			newSlideToken = "\n\n" + newSlideToken;
+		}
+		insertSymbolAtCurrentLine(newSlideToken, "end");
+	});
+
+	$("#picturedialogbutton").click(function(event) {
+		event.preventDefault();
+		if ($("#picturesrcForm").is(":visible")) {
+			$("#cancelpicturelink").click();
+		} else {
+			$("#picturesrcForm").slideDown();
+		}
+	});
+
+	$("#insertpicturebutton").click(function(event) {
+		event.preventDefault();
+		var imageSrc = $("#picturesrc").attr("value");
+		var imageToken = '<img src="'+imageSrc+'"/>\n\n';
+		if (!isCurrentLineOnlyWhitespace()) {
+			imageToken = "\n\n" + imageToken;
+		}
+		insertSymbolAtCurrentLine(imageToken, "end");
+		$("#picturesrcForm").slideUp();
+		$("#picturesrc").attr("value", "http://");
+	});
+
+	$("#cancelpicturelink").click(function(event) {
+		event.preventDefault();
+		$("#picturesrcForm").slideUp();
 	});
 });

@@ -41,6 +41,7 @@ var slidifier = (function() {
 		$("#slide").hide();
 		$("#urls").hide();
 		$("#help").hide();
+		$("#picturesrcForm").hide();
 		
 		$('#srcForm textarea').TextAreaResizer();
 		

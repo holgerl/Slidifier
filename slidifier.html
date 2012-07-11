@@ -72,9 +72,16 @@
 		</div>
 		
 		<form id="srcForm" action="" method="post">
-			<input type="button" value="# Heading" id="headingbutton" class="slidifierbutton editorbutton smallButton"/>
-			<input type="button" value="- List" id="listbutton" class="slidifierbutton editorbutton smallButton"/>
-			<input type="button" value="--- New slide" id="newslidebutton" class="slidifierbutton editorbutton smallButton"/>
+			<button id="headingbutton" class="slidifierbutton editorbutton smallButton"># Heading</button>
+			<button id="listbutton" class="slidifierbutton editorbutton smallButton">- List</button>
+			<button id="newslidebutton" class="slidifierbutton editorbutton smallButton">--- New slide</button>
+			<button id="picturedialogbutton" class="slidifierbutton editorbutton smallButton"><span class="picturedialogbuttonlabel">Picture</span></button>
+
+			<div id="picturesrcForm">
+				<label for="picturesrc">Picture url:</label> <input type="text" id="picturesrc" name="picturesrc" value="http://"/>
+				<button id="insertpicturebutton" class="slidifierbutton smallButton">Insert picture</button>
+				<a href="#" id="cancelpicturelink">Cancel</a>
+			</div>
 
 			<textarea name="slides_src" id="slidesSrc">
 # Slidifier
@@ -101,6 +108,12 @@ Your text will be slidified into an elegant presentation that works on any machi
 
 ---
 
+# A picture is worth a thousand words
+
+<img src="http://slidifier.com/pic.jpg"/>
+
+---
+
 # Technical people
 
 Techies like to have code in their presentations. So you can do that too.
@@ -111,7 +124,7 @@ public int code() {
 }
 \\
 
-Non-techies don't have to worry about that!
+## Non-techies don't have to worry about that!
 
 ---
 
@@ -126,8 +139,8 @@ Non-techies don't have to worry about that!
 				<input type="radio" name="theme" value="colorful" id="colorfultheme"><label id="colorfullabel" for="colorfultheme">Colorful</label>
 			</div> 
 			<input id="submitButton" class="slidifierbutton" type="submit" value="Slidify!" />
-			<input id="saveButton" class="slidifierbutton smallButton" type="button" value="Save" />
-			<input id="newButton" class="slidifierbutton smallButton" type="button" value="New" />
+			<button id="saveButton" class="slidifierbutton smallButton">Save</button>
+			<button id="newButton" class="slidifierbutton smallButton">New</button>
 			<div style="clear: both"></div>
 		</form>
 	</div>

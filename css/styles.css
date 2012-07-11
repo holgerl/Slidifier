@@ -247,7 +247,7 @@ textarea.readonly {
 	font-family: monospace;
 	font-style: normal;
 	border-radius: 5px;
-	margin-bottom: 5px;
+	margin-bottom: 7px;
 	color: #2E2633;
 	text-shadow: none;
 	text-transform: none;
@@ -289,6 +289,22 @@ textarea.readonly {
 		to(#D0DDB3)
 	);
 	border: 1px solid #757172;
+}
+
+.picturedialogbuttonlabel {
+	background-image: url(image-icon.gif);
+	background-repeat: no-repeat;
+	background-position: left;
+	padding-left: 18px;
+}
+
+#picturesrc {
+	width: 400px;
+}
+
+#insertpicturebutton {
+	float: none;
+	margin: 0px 3px 7px;
 }
 
 #saveButton {

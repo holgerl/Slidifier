@@ -58,7 +58,8 @@ var io = (function() {
 			$('#newButton').hide();
 		}
 		
-		$('#saveButton').click(function(e) {
+		$('#saveButton').click(function(event) {
+			event.preventDefault();
 			if (slideshowId == undefined) {
 				createEmptySlideshowAndSaveInDB();
 			} else if (slideshowId != undefined && slideshowKey != undefined){
@@ -66,7 +67,8 @@ var io = (function() {
 			}
 		});
 		
-		$('#newButton').click(function(e) {
+		$('#newButton').click(function(event) {
+			event.preventDefault();
 			var fullBaseUrl = "http://" + $.url().attr('host') + $.url().attr('path')
 			$(window.location).attr('href', fullBaseUrl);
 		});
