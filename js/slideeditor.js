@@ -92,11 +92,17 @@ $(document).ready(function() {
 
 	$("#insertpicturebutton").click(function(event) {
 		event.preventDefault();
+		
 		var imageSrc = $("#picturesrc").attr("value");
+		if (!/:\/\//.test(imageSrc)) {
+			imageSrc = "http://" + imageSrc;
+		}
+		
 		var imageToken = '<img src="'+imageSrc+'"/>\n\n';
 		if (!isCurrentLineOnlyWhitespace()) {
 			imageToken = "\n\n" + imageToken;
 		}
+		
 		insertSymbolAtCurrentLine(imageToken, "end");
 		$("#picturesrcForm").slideUp();
 		$("#picturesrc").attr("value", "http://");
