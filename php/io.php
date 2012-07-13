@@ -131,9 +131,9 @@
 			return true;
 		}
 		 
-		if (isset($_POST['id'], $_POST['admin_key'], $_POST['src'])) {
+		if (isset($_POST['id'], $_POST['key'], $_POST['src'])) {
 			$slideshowId = $_POST['id'];
-			$slideshowKey = $_POST['admin_key'];
+			$slideshowKey = $_POST['key'];
 			$slideshowToSave = $_POST['src'];
 			if (isCorrectKey($slideshowId, $slideshowKey)) {
 				updateSlideshow($slideshowId, $slideshowToSave);
@@ -149,7 +149,7 @@
 			$id = generateUniqueId();
 			$key = generateRandomLegibleString();
 			createEmptySlideshow($id, $key);
-			$idAndKey = array('id' => $id, 'admin_key' => $key);
+			$idAndKey = array('id' => $id, 'key' => $key);
 			sendJSONResponse(json_encode($idAndKey));
 			return true;
 		}
@@ -188,8 +188,8 @@
 						<td><input type="text" name="id" id="id"/></td>
 					</tr>
 					<tr>
-						<td><label for="admin_key">admin_key:</label></td>
-						<td><input type="text" name="admin_key" id="admin_key"/></td>
+						<td><label for="key">key:</label></td>
+						<td><input type="text" name="key" id="key"/></td>
 					</tr>
 					<tr>
 						<td><label for="src">src:</label></td>

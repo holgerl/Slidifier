@@ -8,23 +8,28 @@ var io = (function() {
 		});
 	}
 	
-	function updateSlidshowInDB(id, admin_key, src) {
-		$.post('php/io.php', {id: id, admin_key: admin_key, src: src}, function(data) {
-			$(window.location).attr('href', '?id='+slideshowId+"&admin_key="+slideshowKey);
+	function updateSlidshowInDB(id, key, src) {
+		$.post('php/io.php', {id: id, key: key, src: src}, function(data) {
+			$(window.location).attr('href', '?id='+slideshowId+"&key="+slideshowKey);
 		}, 'json');
 	}
 	
 	function createEmptySlideshowAndSaveInDB() {
 		$.post('php/io.php', {create: ""}, function(data) {
 			slideshowId = data.id;
-			slideshowKey = data.admin_key;
+			slideshowKey = data.key;
 			updateSlidshowInDB(slideshowId, slideshowKey, $('textarea[name=slides_src]').val());
 		}, 'json');
 	}
 	
 	function init() {
 		slideshowId = $.url().param('id');
-		slideshowKey = $.url().param('admin_key');
+		slideshowKey = $.url().param('key');
+
+		// This is only for backwards compatability with old urls:
+		if ($.url().param('admin_key') !== undefined) {
+			slideshowKey = $.url().param('admin_key');
+		}
 	
 		if (slideshowId != undefined) {
 			readSlideshowIntoForm(slideshowId);
@@ -42,10 +47,10 @@ var io = (function() {
 		
 		if (slideshowId != undefined && slideshowKey != undefined) {
 			var fullBaseUrl = "http://" + $.url().attr('host') + $.url().attr('path');
-			var fullAdminUrl = fullBaseUrl + "?id="+slideshowId+"&admin_key="+slideshowKey;
+			var fullAdminUrl = fullBaseUrl + "?id="+slideshowId+"&key="+slideshowKey;
 			var fullShareUrl = fullBaseUrl + "?id="+slideshowId;
 			var shortBaseUrl = $.url().attr('host') + $.url().attr('path')
-			var shortAdminUrl = shortBaseUrl + "?id="+slideshowId+"&admin_key="+slideshowKey;
+			var shortAdminUrl = shortBaseUrl + "?id="+slideshowId+"&key="+slideshowKey;
 			var shortShareUrl = shortBaseUrl + "?id="+slideshowId;
 			$('#admin-url').html(shortAdminUrl);
 			$('#admin-url').attr("href", fullAdminUrl);
@@ -56,6 +61,10 @@ var io = (function() {
 		} else {
 			$('#urls').hide();
 			$('#newButton').hide();
+		}
+
+		if (slideshowId !== undefined && slideshowKey === undefined) {
+			$('.editorbutton').hide();
 		}
 		
 		$('#saveButton').click(function(event) {
