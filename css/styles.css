@@ -302,14 +302,49 @@ textarea.readonly {
 	width: 250px;
 }
 
+#picturesrcForm {
+	margin-bottom: 3px;
+}
+
 #picturesrcForm em {
 	font-size: 133%;
 	font-weight: bold;
+	display: block;
+	margin-bottom: 5px;
+}
+
+#picturesrcForm .editorbutton {
+	font-family: inherit;
+	padding: 7px;
 }
 
 #insertpicturebutton, #uploadpicturebutton {
 	float: none;
 	margin: 0px 3px 7px;
+}
+
+#uploadframe {
+	display: block;
+	width: 100%;
+}
+
+#uploader form {
+	margin: 0;
+}
+
+#uploader span {
+	margin: 0;
+	padding: 2px;
+	display: block;
+	float: left;
+}
+
+#uploader input {
+	font-size: 1em;
+	font-family: georgia;
+	color: #2E2633;
+	margin: 3px;
+	width: 406px;
 }
 
 #saveButton {
@@ -428,23 +463,4 @@ div.grippie {
   -moz-user-select: none;
   -o-user-select: none;
   user-select: none;
-}
-
-#uploadframe {
-	display: block;
-	width: 100%;
-}
-
-#uploader form {
-	margin: 0;
-}
-
-#uploader input {
-	font-size: 1em;
-	margin: 0;
-}
-
-#uploader input {
-	font-family: georgia;
-	color: #2E2633;
 }
