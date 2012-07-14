@@ -53,7 +53,8 @@
 	
 	function getSlideshow($slideshowId) {
 		$row = dbReadRow("SELECT src FROM slideshows WHERE id = '" . dbEscape($slideshowId) . "';");
-		return reverse_escape($row['src']);
+		//return reverse_escape($row['src']); // Fjerner denne linjen fordi det blir feil å unescape på min maskin (Holger)! Merkelig. Kanske forskjell på lokal maskin og server?
+		return $row['src'];
 	}
 	
 	function isCorrectKey($slideshowId, $slideshowKey) {
