@@ -4,8 +4,8 @@
 		// Note: Modern PHP engines automatically free connections
 		include 'conf/db.php';
 		
-		$connection = mysql_connect($dbConfig['db_host'], $dbConfig['db_user'], $dbConfig['db_password']); 
-		$success = mysql_select_db($dbConfig['db_name'], $connection); 
+		$connection = mysqli_connect($dbConfig['db_host'], $dbConfig['db_user'], $dbConfig['db_password']); 
+		$success = mysqli_select_db($connection, $dbConfig['db_name']); 
 		
 		if (!$connection || !$success) {
 			throw new Exception("ERROR when connecting to DB");
@@ -15,9 +15,9 @@
 	}
 	
 	function dbGetQueryResult($sql) {
-		getDBConnection();
+		$connection = getDBConnection();
 		
-		$result = mysql_query($sql);
+		$result = mysqli_query($connection, $sql);
 		
 		if (!$result) {
 			throw new Exception("ERROR when doing SQL query");
@@ -28,11 +28,11 @@
 	
 	function dbReadRow($sql) {
 		$result = dbGetQueryResult($sql);
-		
-		$row = mysql_fetch_array($result);
-		
-		mysql_free_result($result);
-		
+
+		$row = mysqli_fetch_array($result);
+
+		mysqli_free_result($result);
+
 		return $row;
 	}
 	
@@ -43,12 +43,12 @@
 	function dbCountRows($sql) {
 		$result = dbGetQueryResult($sql);
 		
-		return mysql_num_rows($result);
+		return mysqli_num_rows($result);
 	}
 	
 	function dbEscape($str) {
-		getDBConnection();
-		return mysql_real_escape_string($str);
+		$connection = getDBConnection();
+		return mysqli_real_escape_string($connection, $str);
 	}
 	
 	function getSlideshow($slideshowId) {
