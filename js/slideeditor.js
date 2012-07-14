@@ -98,7 +98,7 @@ $(document).ready(function() {
 			imageSrc = "http://" + imageSrc;
 		}
 		
-		var imageToken = '<img src="'+imageSrc+'"/>\n\n';
+		var imageToken = '<img height="50%" src="'+imageSrc+'"/>\n\n';
 		if (!isCurrentLineOnlyWhitespace()) {
 			imageToken = "\n\n" + imageToken;
 		}
