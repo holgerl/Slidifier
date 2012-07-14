@@ -299,10 +299,15 @@ textarea.readonly {
 }
 
 #picturesrc {
-	width: 400px;
+	width: 250px;
 }
 
-#insertpicturebutton {
+#picturesrcForm em {
+	font-size: 133%;
+	font-weight: bold;
+}
+
+#insertpicturebutton, #uploadpicturebutton {
 	float: none;
 	margin: 0px 3px 7px;
 }
@@ -423,4 +428,23 @@ div.grippie {
   -moz-user-select: none;
   -o-user-select: none;
   user-select: none;
+}
+
+#uploadframe {
+	display: block;
+	width: 100%;
+}
+
+#uploader form {
+	margin: 0;
+}
+
+#uploader input {
+	font-size: 1em;
+	margin: 0;
+}
+
+#uploader input {
+	font-family: georgia;
+	color: #2E2633;
 }

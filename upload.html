@@ -1,0 +1,30 @@
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	
+	<link rel="stylesheet" type="text/css" href="lib/reset.css" />
+	<link rel="stylesheet" type="text/css" href="css/styles.css" />
+	
+	<!--[if IE]>
+		<link rel="stylesheet" type="text/css" href="css/ie.css" />
+	<![endif]-->
+
+	<script type="text/javascript" src="lib/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript" src="lib/jquery-urlparser/jquery.url.js"></script>
+
+	<script type="text/javascript" src="js/upload.js"></script>
+</head>
+<body>
+	<div id="uploader">
+		<div id="uploadfailed">
+			Upload <strong>FAILED</strong>!
+		</div>
+		<div id="uploadform">
+			<form action="php/io.php" method="post" enctype="multipart/form-data">
+				<input type="file" id="picturefile" name="picturefile" class="slidifierbutton editorbutton"/>
+				<button id="uploadpicturebutton" class="slidifierbutton smallButton">Upload picture</button>
+			</form>
+		</div>
+	</div>
+</body>
+</html>
