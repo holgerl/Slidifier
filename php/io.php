@@ -124,7 +124,8 @@
 
 	function main() {
 		if (isset($_FILES['picturefile']['name'])) {
-			$filelocation = "uploaded_files/" . $_FILES['picturefile']['name'];
+			$filename = generateUniqueId() . "-" . $_FILES['picturefile']['name'];
+			$filelocation = "uploaded_files/" . $filename;
 			$uploadresult = move_uploaded_file($_FILES['picturefile']['tmp_name'], "../" . $filelocation);
 			header('Location: ' . $_SERVER['HTTP_REFERER'] . "?uploadresult=" . $uploadresult . "&filelocation=" . $filelocation);
 			return true;
