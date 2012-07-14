@@ -16,15 +16,13 @@
 </head>
 <body>
 	<div id="uploader">
-		<div id="uploadfailed">
-			Upload <strong>FAILED</strong>!
-		</div>
 		<div id="uploadform">
 			<form action="php/io.php" method="post" enctype="multipart/form-data">
 				<span class="slidifierbutton editorbutton">
 					<input type="file" id="picturefile" name="picturefile"/>
 				</span>
 				<button id="uploadpicturebutton" class="slidifierbutton smallButton">Upload picture</button>
+				<strong id="uploadfailed"><!--Error message here--></strong>
 			</form>
 		</div>
 	</div>

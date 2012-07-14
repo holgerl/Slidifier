@@ -124,11 +124,26 @@
 
 	function main() {
 		if (isset($_FILES['picturefile']['name'])) {
-			$filename = generateUniqueId() . "-" . $_FILES['picturefile']['name'];
-			$filelocation = "uploaded_files/" . $filename;
-			$uploadresult = move_uploaded_file($_FILES['picturefile']['tmp_name'], "../" . $filelocation);
-			header('Location: ' . $_SERVER['HTTP_REFERER'] . "?uploadresult=" . $uploadresult . "&filelocation=" . $filelocation);
-			return true;
+			$referersplit = preg_split("/[?]/", $_SERVER['HTTP_REFERER']);
+			$referer = $referersplit[0];
+			try {
+				if ($_FILES["picturefile"]["size"] > 1024*1024) {
+					throw new Exception('File too large!');
+				} else {
+					$filename = generateUniqueId() . "-" . $_FILES['picturefile']['name'];
+					$filelocation = "uploaded_files/" . $filename;
+					$uploadresult = move_uploaded_file($_FILES['picturefile']['tmp_name'], "../" . $filelocation);
+					if (!$uploadresult) {
+						throw new Exception('Error when saving file!');
+					}
+				}
+
+				header('Location: ' . $referer . "?uploadresult=true&filelocation=" . $filelocation);
+				return true;
+			} catch (Exception $e) {
+			    header('Location: ' . $referer . "?uploadresult=false&errormsg=" . $e->getMessage());
+				return true;
+			}
 		}
 
 		if (isset($_GET['id'])) {

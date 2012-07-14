@@ -347,6 +347,18 @@ textarea.readonly {
 	width: 406px;
 }
 
+#uploader button {
+	float: left;
+}
+
+#uploadfailed {
+	float: left;
+	font-weight: bold;
+	color: #99173C;
+	margin-top: 7px;
+	margin-left: 4px;
+}
+
 #saveButton {
 	color: #E997BC;
 }
