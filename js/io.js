@@ -65,6 +65,7 @@ var io = (function() {
 
 		if (slideshowId !== undefined && slideshowKey === undefined) {
 			$('.editorbutton').hide();
+			$("#readonlyMsg").show();
 		}
 		
 		$('#saveButton').click(function(event) {
