@@ -4,12 +4,12 @@ $(document).ready(function() {
 	var uploadresult = $.url().param('uploadresult');
 	var errormsg = $.url().param('errormsg');
 	var filelocation = $.url().param('filelocation');
-	var admin_key = $.url().param('key');
+	var hasSaved = /key=.+/.test(window.parent.location.href);
 
 	if (uploadresult === "true") {
 		$("#picturesrc", window.parent.document).attr("value", filelocation);
 		$("#insertpicturebutton", window.parent.document).click();
-		if (admin_key === undefined) {
+		if (!hasSaved) {
 			$("#saveButton", window.parent.document).click();
 		}
 	} else if (uploadresult !== undefined) {
