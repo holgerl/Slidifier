@@ -43,7 +43,7 @@ $(document).ready(function() {
 		if (atStartOrEnd === "start" && allText[line["start"]] !== symbol){
 			symbol += ' ';
 		}
-		var newText = allText.substr(0, line[atStartOrEnd]) + symbol + allText.substr(line[atStartOrEnd], allText.length);
+		var newText = allText.substring(0, line[atStartOrEnd]) + symbol + allText.substring(line[atStartOrEnd], allText.length);
 
 		$("#slidesSrc").attr("value", newText);
 
@@ -58,7 +58,7 @@ $(document).ready(function() {
 		var currentPosition = $("#slidesSrc").getSelection().start;
 		var allText = $("#slidesSrc").attr("value");
 		var line = editor.getLineAtPosition(allText, currentPosition);
-		var lineString = allText.substr(line.start, line.end);
+		var lineString = allText.substring(line.start, line.end+1);
 		return !(/\S/.test(lineString));
 	}
 
@@ -74,9 +74,9 @@ $(document).ready(function() {
 
 	$("#newslidebutton").click(function(event) {
 		event.preventDefault();
-		var newSlideToken = "---\n\n";
+		var newSlideToken = "---\n";
 		if (!isCurrentLineOnlyWhitespace()) {
-			newSlideToken = "\n\n" + newSlideToken;
+			newSlideToken = "\n" + newSlideToken;
 		}
 		insertSymbolAtCurrentLine(newSlideToken, "end");
 	});
@@ -98,9 +98,9 @@ $(document).ready(function() {
 			imageSrc = "http://" + imageSrc;
 		}
 		
-		var imageToken = '<img height="50%" src="'+imageSrc+'"/>\n\n';
+		var imageToken = '<img height="50%" src="'+imageSrc+'"/>\n';
 		if (!isCurrentLineOnlyWhitespace()) {
-			imageToken = "\n\n" + imageToken;
+			imageToken = "\n" + imageToken;
 		}
 		
 		insertSymbolAtCurrentLine(imageToken, "end");
