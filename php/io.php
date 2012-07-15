@@ -147,17 +147,13 @@
 
 					if ($image->getHeight() > 1024) {
 						$image->resizeToHeight(1024);
-						$imageWasResized = true;
 					}
 
 					if ($image->getWidth() > 1024) {
 						$image->resizeToWidth(1024);
-						$imageWasResized = true;
 					}
 
-					if ($imageWasResized) {
-						$image->save("../" . $filelocation);
-					}
+					$image->save("../" . $filelocation); // Saving even if not resized, to reduce compression level of file
 				}
 
 				header('Location: ' . $referer . "?uploadresult=true&filelocation=" . $filelocation);
