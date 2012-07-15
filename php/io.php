@@ -1,5 +1,7 @@
 <?php
 
+	include('../lib/simpleimage/SimpleImage.php');
+
 	function getDBConnection() {
 		// Note: Modern PHP engines automatically free connections
 		include 'conf/db.php';
@@ -134,8 +136,27 @@
 					$filename = generateUniqueId() . "-" . $_FILES['picturefile']['name'];
 					$filelocation = "uploaded_files/" . $filename;
 					$uploadresult = move_uploaded_file($_FILES['picturefile']['tmp_name'], "../" . $filelocation);
+
 					if (!$uploadresult) {
 						throw new Exception('Error when saving file!');
+					}
+
+					$image = new SimpleImage();
+					$image->load("../" . $filelocation);
+					$imageWasResized = false;
+
+					if ($image->getHeight() > 1024) {
+						$image->resizeToHeight(1024);
+						$imageWasResized = true;
+					}
+
+					if ($image->getWidth() > 1024) {
+						$image->resizeToWidth(1024);
+						$imageWasResized = true;
+					}
+
+					if ($imageWasResized) {
+						$image->save("../" . $filelocation);
 					}
 				}
 
