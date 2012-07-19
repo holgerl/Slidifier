@@ -55,8 +55,8 @@
 	
 	function getSlideshow($slideshowId) {
 		$row = dbReadRow("SELECT src FROM slideshows WHERE id = '" . dbEscape($slideshowId) . "';");
-		//return reverse_escape($row['src']); // Fjerner denne linjen fordi det blir feil å unescape på min maskin (Holger)! Merkelig. Kanske forskjell på lokal maskin og server?
-		return $row['src'];
+		return reverse_escape($row['src']); // Fjernet denne linjen hos meg (Holger) fordi det blir feil å unescape på min maskin! Merkelig. Kanske forskjell på lokal maskin og server?
+		//return $row['src'];
 	}
 	
 	function isCorrectKey($slideshowId, $slideshowKey) {
@@ -130,7 +130,7 @@
 			$referersplit = preg_split("/[?]/", $_SERVER['HTTP_REFERER']);
 			$referer = $referersplit[0];
 			try {
-				if ($_FILES["picturefile"]["size"] > 1024*1024) {
+				if ($_FILES["picturefile"]["size"] > 5*1024*1024) {
 					throw new Exception('File too large!');
 				} else {
 					$filename = generateUniqueId() . "-" . $_FILES['picturefile']['name'];
