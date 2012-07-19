@@ -357,6 +357,11 @@ textarea.readonly {
 	margin-left: 8px;
 }
 
+#uploadspinner {
+	margin-top: 12px;
+	margin-left: 5px;
+}
+
 #uploadfailed {
 	float: left;
 	font-weight: bold;

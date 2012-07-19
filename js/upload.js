@@ -1,5 +1,6 @@
 $(document).ready(function() {
 	$("#uploadfailed").hide();
+	$("#uploadspinner").hide();
 
 	var uploadresult = $.url().param('uploadresult');
 	var errormsg = $.url().param('errormsg');
@@ -20,6 +21,7 @@ $(document).ready(function() {
 	$("#uploadpicturebutton").click(function(event) {
 		event.preventDefault();
 		if ($.trim($("#picturefile").attr("value")).length > 0) {
+			$("#uploadspinner").show();
 			$("#uploadform form").submit();
 		}
 	});
