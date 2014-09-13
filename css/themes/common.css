@@ -1,3 +1,8 @@
+@font-face {
+	font-family: SinaNovaReg;
+	src: url("../../fonts/SinaNovaReg-webfont.ttf") format("truetype");
+}
+
 #slide #help {
 	padding: 15px;
 	text-align: center;
@@ -19,7 +24,7 @@
 }
 
 #slide {
-	font-family: georgia; font-size: 1.5em; height: 100%; text-align: center;
+	font-family: SinaNovaReg, georgia; font-size: 1.5em; height: 100%; text-align: center;
 }
 
 #slide.endofshow #slidecontent {
@@ -58,11 +63,11 @@
 }
 
 #slide h1 {
-	font-size: 1.65em; margin-bottom: 0.1em; font-weight: bold;
+	font-size: 1.65em; margin-bottom: 0.1em; font-weight: bold; font-style: normal;
 }
 
 #slide h2, #slide h3, #slide h4, #slide h5, #slide h6 {
-	font-size: 1.3em; margin-bottom: 0em;
+	font-size: 1.3em; margin-bottom: 0em; font-style: normal;
 }
 
 #slide ul, #slide ol {
