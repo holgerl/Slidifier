@@ -59,7 +59,20 @@
 }
 
 #slidecontent {
-	padding: 50px 100px 0px 100px; white-space: pre-wrap;
+	white-space: pre-wrap;
+	display: inline-block;
+	vertical-align: middle;
+	margin-bottom: 60px;
+	width: 88%;
+}
+
+
+#slide:before {
+	content: '';
+	display: inline-block;
+	height: 100%; 
+	vertical-align: middle;
+	margin-right: -0.25em;
 }
 
 #slide h1 {
