@@ -85,6 +85,14 @@ var ui = (function() {
 		$(document).mousedown(function(e) {
 			if (e.which == 1 && $("#slide").is(':visible')) {
 				slideForward();
+				e.preventDefault();
+			}
+		});
+		
+		$(document).bind('touchstart', function(e) {
+			if ($("#slide").is(':visible')) {
+				slideForward();
+				e.preventDefault();
 			}
 		});
 	};
