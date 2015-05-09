@@ -1,1 +1,1 @@
-Hello world!
+<?php include 'index.html';?>
