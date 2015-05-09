@@ -6,6 +6,8 @@
 		// Note: Modern PHP engines automatically free connections
 		include 'conf/db.php';
 		
+		echo "CONNECTING TO DB: " . $dbConfig['db_host'] . $dbConfig['db_user'] . $dbConfig['db_password'] . $dbConfig['db_name'];
+		
 		$connection = mysqli_connect($dbConfig['db_host'], $dbConfig['db_user'], $dbConfig['db_password']); 
 		$success = mysqli_select_db($connection, $dbConfig['db_name']); 
 		
@@ -206,6 +208,7 @@
 		$errorInfo = array('error' => 'error', 'message' => $e->getMessage());
 	    sendJSONResponse(json_encode($errorInfo));
 	    $responseWritten = true;
+		throw $e;
 	}
 ?>
 
