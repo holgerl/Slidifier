@@ -6,13 +6,13 @@
 		// Note: Modern PHP engines automatically free connections
 		include 'conf/db.php';
 		
-		echo "CONNECTING TO DB: " . $dbConfig['db_host'] . $dbConfig['db_user'] . $dbConfig['db_password'] . $dbConfig['db_name'];
+		echo "CONNECTING TO DB: " . $dbConfig['db_host'] . " " . $dbConfig['db_user'] . " " . $dbConfig['db_password'] . " " . $dbConfig['db_name'];
 		
 		$connection = mysqli_connect($dbConfig['db_host'], $dbConfig['db_user'], $dbConfig['db_password']); 
 		$success = mysqli_select_db($connection, $dbConfig['db_name']); 
 		
 		if (!$connection || !$success) {
-			throw new Exception("ERROR when connecting to DB");
+			throw new Exception("ERROR when connecting to DB " . mysqli_connect_error());
 		}
 		
 		return $connection;
@@ -24,7 +24,7 @@
 		$result = mysqli_query($connection, $sql);
 		
 		if (!$result) {
-			throw new Exception("ERROR when doing SQL query");
+			throw new Exception("ERROR when doing SQL query " . mysqli_error());
 		}
 		
 		return $result;
