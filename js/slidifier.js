@@ -18,6 +18,12 @@ var slidifier = (function() {
 		
 		ui.loadTheme();
 		
+		window.history.pushState({}, "");
+		window.onpopstate = function(event) {
+			$("#slide").hide();
+			$("#slideEdit").show();
+		};
+		
 		showSlideShow();
 	}
 	
