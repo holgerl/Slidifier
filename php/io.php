@@ -206,6 +206,7 @@
 		$errorInfo = array('error' => 'error', 'message' => $e->getMessage());
 	    sendJSONResponse(json_encode($errorInfo));
 	    $responseWritten = true;
+		throw $e;
 	}
 ?>
 
