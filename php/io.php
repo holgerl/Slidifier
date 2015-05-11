@@ -22,6 +22,7 @@
 		$result = mysqli_query($connection, $sql);
 		
 		if (!$result) {
+			echo $sql;
 			throw new Exception("ERROR when doing SQL query " . mysqli_error($connection));
 		}
 		
