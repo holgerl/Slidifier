@@ -5,3 +5,8 @@ CREATE TABLE slidifier.slideshows (
 	admin_key varchar(500) NOT NULL,
 	src longtext
 );
+
+CREATE TABLE images (
+id VARCHAR(50) NOT NULL PRIMARY KEY,
+bytes MEDIUMBLOB NOT NULL;
+);

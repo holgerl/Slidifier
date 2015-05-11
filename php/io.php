@@ -68,6 +68,15 @@
 		dbWrite("UPDATE slideshows SET src='" . dbEscape($slideshowToSave) . "' WHERE id='" . dbEscape($slideshowId) . "';");
 	}
 	
+	function updateOrInsertImage($imageId, $bytes) {
+		$count = dbCountRows("SELECT id FROM images WHERE id='" . dbEscape($imageId) . "';");
+		if ($count > 0) {
+			dbWrite("UPDATE images SET bytes='" . dbEscape($bytes) . "' WHERE id='" . dbEscape($imageId) . "';");
+		} else {
+			dbWrite("INSERT INTO images (id, bytes) VALUES ('" . dbEscape($imageId) . "', '" . dbEscape($bytes) . ");");
+		}
+	}
+	
 	function createEmptySlideshow($slideshowId, $slideshowKey) {
 		dbWrite("INSERT INTO slideshows (id, admin_key, src) VALUES ('" . dbEscape($slideshowId) . "', '" . dbEscape($slideshowKey) . "', '');");
 	}
@@ -135,14 +144,17 @@
 				} else {
 					$filename = generateUniqueId() . "-" . $_FILES['picturefile']['name'];
 					$filelocation = "uploaded_files/" . $filename;
-					$uploadresult = move_uploaded_file($_FILES['picturefile']['tmp_name'], "../" . $filelocation);
+					$tmpName = $_FILES['picturefile']['tmp_name'];
+					
+					
+					//$uploadresult = move_uploaded_file($_FILES['picturefile']['tmp_name'], "../" . $filelocation);
 
-					if (!$uploadresult) {
-						throw new Exception('Error when saving file!');
-					}
+					//if (!$uploadresult) {
+					//	throw new Exception('Error when saving file!');
+					//}
 
 					$image = new SimpleImage();
-					$image->load("../" . $filelocation);
+					$image->load($tmpName);
 					$imageWasResized = false;
 
 					if ($image->getHeight() > 1024) {
@@ -153,7 +165,14 @@
 						$image->resizeToWidth(1024);
 					}
 
-					$image->save("../" . $filelocation); // Saving even if not resized, to reduce compression level of file
+					$image->save($tmpName); // Saving even if not resized, to reduce compression level of file
+					
+					$fp = fopen($tmpName, 'r');
+					$content = fread($fp, filesize($tmpName));
+					$content = addslashes($content);
+					fclose($fp);
+					
+					updateOrInsertImage($filename, $content);
 				}
 
 				header('Location: ' . $referer . "?uploadresult=true&filelocation=" . $filelocation);
