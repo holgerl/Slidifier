@@ -76,7 +76,7 @@
 		if ($count > 0) {
 			dbWrite("UPDATE images SET bytes='" . dbEscape($bytes) . "' WHERE id='" . dbEscape($imageId) . "';");
 		} else {
-			dbWrite("INSERT INTO images (id, bytes) VALUES ('" . dbEscape($imageId) . "', '" . dbEscape($bytes) . ");");
+			dbWrite("INSERT INTO images (id, bytes) VALUES ('" . dbEscape($imageId) . "', '" . dbEscape($bytes) . "');");
 		}
 	}
 	
