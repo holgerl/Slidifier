@@ -62,6 +62,23 @@
 		//return $row['src'];
 	}
 	
+	function getImage($imageId) {
+		$row = dbReadRow("SELECT bytes FROM images WHERE id = '" . dbEscape($imageId) . "';");
+		return reverse_escape($row['bytes']);
+	}
+	
+	function getContentType($imageId) {
+		if (strpos($imageId, '.jpg') || strpos($imageId, '.jpeg')) {
+			return("Content-type: image/jpeg");
+		} elseif (strpos($imageId, '.png')) {
+			return("Content-type: image/png");
+		} elseif (strpos($imageId, '.gif')) {
+			return("Content-type: image/gif");
+		} else {
+			return("Content-type: image/unknown");
+		}
+	}
+	
 	function isCorrectKey($slideshowId, $slideshowKey) {
 		$row = dbReadRow("SELECT admin_key FROM slideshows WHERE id = '" . dbEscape($slideshowId) . "';");
 		return $row['admin_key'] == $slideshowKey;
@@ -214,6 +231,14 @@
 			createEmptySlideshow($id, $key);
 			$idAndKey = array('id' => $id, 'key' => $key);
 			sendJSONResponse(json_encode($idAndKey));
+			return true;
+		}
+		
+		if (isset($_GET['imageid'])) {
+			$imageId = $_GET['imageid'];
+			$image = getImage($imageId);
+			header("Content-type: " . getContentType($imageId));
+			print($image);
 			return true;
 		}
 		
