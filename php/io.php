@@ -61,7 +61,7 @@
 	
 	function getImage($imageId) {
 		$row = dbReadRow("SELECT bytes FROM images WHERE id = '" . dbEscape($imageId) . "';");
-		return reverse_escape($row['bytes']);
+		return $row['bytes'];
 	}
 	
 	function getContentType($imageId) {
