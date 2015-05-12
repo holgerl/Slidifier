@@ -156,7 +156,7 @@
 			$referersplit = preg_split("/[?]/", $_SERVER['HTTP_REFERER']);
 			$referer = $referersplit[0];
 			try {
-				if ($_FILES["picturefile"]["size"] > 5*1024*1024 && $_FILES['picturefile']['tmp_name' == null) {
+				if ($_FILES["picturefile"]["size"] > 5*1024*1024 || $_FILES['picturefile']['tmp_name'] == null) {
 					throw new Exception('File too large!');
 				} else {
 					$filename = generateUniqueId() . "-" . $_FILES['picturefile']['name'];
