@@ -94,7 +94,7 @@ $(document).ready(function() {
 		event.preventDefault();
 		
 		var imageSrc = $("#picturesrc").attr("value");
-		if (!/:\/\//.test(imageSrc) && !/^io.php\?.+$/.test(imageSrc)) {
+		if (!/:\/\//.test(imageSrc) && !/^php\/io.php\?.+$/.test(imageSrc)) {
 			imageSrc = "http://" + imageSrc;
 		}
 		
