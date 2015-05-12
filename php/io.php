@@ -178,7 +178,6 @@
 					
 					$fp = fopen($tmpName, 'r');
 					$content = fread($fp, filesize($tmpName));
-					$content = addslashes($content);
 					fclose($fp);
 					
 					updateOrInsertImage($filename, $content);
