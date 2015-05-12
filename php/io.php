@@ -163,15 +163,7 @@
 					throw new Exception('File too large!');
 				} else {
 					$filename = generateUniqueId() . "-" . $_FILES['picturefile']['name'];
-					$filelocation = "uploaded_files/" . $filename;
 					$tmpName = $_FILES['picturefile']['tmp_name'];
-					
-					
-					//$uploadresult = move_uploaded_file($_FILES['picturefile']['tmp_name'], "../" . $filelocation);
-
-					//if (!$uploadresult) {
-					//	throw new Exception('Error when saving file!');
-					//}
 
 					$image = new SimpleImage();
 					$image->load($tmpName);
