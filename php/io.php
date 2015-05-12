@@ -195,7 +195,7 @@
 					updateOrInsertImage($filename, $content);
 				}
 
-				header('Location: ' . $referer . "?uploadresult=true&filelocation=" . $filelocation);
+				header('Location: ' . $referer . "?uploadresult=true&filelocation=php/io.php?file=" . $filename);
 				return true;
 			} catch (Exception $e) {
 			    header('Location: ' . $referer . "?uploadresult=false&errormsg=" . $e->getMessage());
@@ -234,8 +234,8 @@
 			return true;
 		}
 		
-		if (isset($_GET['imageid'])) {
-			$imageId = $_GET['imageid'];
+		if (isset($_GET['file'])) {
+			$imageId = $_GET['file'];
 			$image = getImage($imageId);
 			header("Content-type: " . getContentType($imageId));
 			print($image);
