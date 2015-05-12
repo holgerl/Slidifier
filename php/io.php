@@ -68,14 +68,14 @@
 	}
 	
 	function getContentType($imageId) {
-		if (strpos($imageId, '.jpg') || strpos($imageId, '.jpeg')) {
-			return("Content-type: image/jpeg");
-		} elseif (strpos($imageId, '.png')) {
-			return("Content-type: image/png");
-		} elseif (strpos($imageId, '.gif')) {
-			return("Content-type: image/gif");
+		if (strpos($imageId, '.jpg') !== false || strpos($imageId, '.jpeg') !== false) {
+			return "Content-type: image/jpeg";
+		} elseif (strpos($imageId, '.png') !== false) {
+			return "Content-type: image/png";
+		} elseif (strpos($imageId, '.gif') !== false) {
+			return "Content-type: image/gif";
 		} else {
-			return("Content-type: image/unknown");
+			return"Content-type: image/unknown";
 		}
 	}
 	
