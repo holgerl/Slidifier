@@ -19,9 +19,6 @@
 	function dbGetQueryResult($sql) {
 		$connection = getDBConnection();
 		
-		error_log("-------------------HEEEEER----------------------");
-		error_log($sql);
-		
 		$result = mysqli_query($connection, $sql);
 		
 		if (!$result) {
