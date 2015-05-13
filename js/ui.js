@@ -91,7 +91,7 @@ var ui = (function() {
 		
 		$(document).bind('touchstart', function(event) {
 			if ($("#slide").is(':visible')) {
-				if (event.targetTouches[0].pageX < window.innerWidth/2) {
+				if (event.originalEvent.targetTouches[0].pageX < window.innerWidth/2) {
 					slideBackward();
 					e.preventDefault();
 				} else {
