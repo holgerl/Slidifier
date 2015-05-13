@@ -196,8 +196,9 @@
 		if (isset($_GET['batch'])) {
 			$files = scandir('./uploaded_files');
 			foreach($files as $file) {
-				$fp = fopen($file, 'r');
-				$content = fread($fp, filesize($file));
+				$filename = "./uploaded_files" . $file;
+				$fp = fopen($filename, 'r');
+				$content = fread($fp, filesize($filename));
 				fclose($fp);
 				
 				updateOrInsertImage($file, $content);
