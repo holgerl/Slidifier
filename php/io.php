@@ -65,11 +65,11 @@
 	}
 	
 	function getContentType($imageId) {
-		if (strpos($imageId, '.jpg') !== false || strpos($imageId, '.jpeg') !== false) {
+		if (preg_match(/\.jpg/i, $imageId) || preg_match(/\.jpeg/i, $imageId)) {
 			return "Content-type: image/jpeg";
-		} elseif (strpos($imageId, '.png') !== false) {
+		} elseif (preg_match(/\.png/i, $imageId)) {
 			return "Content-type: image/png";
-		} elseif (strpos($imageId, '.gif') !== false) {
+		} elseif (preg_match(/\.gif/i, $imageId)) {
 			return "Content-type: image/gif";
 		} else {
 			return null;
