@@ -72,7 +72,7 @@
 		} elseif (strpos($imageId, '.gif') !== false) {
 			return "Content-type: image/gif";
 		} else {
-			return"Content-type: image/unknown";
+			return null;
 		}
 	}
 	
@@ -158,6 +158,8 @@
 			try {
 				if ($_FILES["picturefile"]["size"] > 5*1024*1024 || $_FILES['picturefile']['tmp_name'] == null) {
 					throw new Exception('File too large!');
+				} else if (getContentType($_FILES['picturefile']['name']) == null) {
+					throw new Exception('File type not supported!');
 				} else {
 					$filename = generateUniqueId() . "-" . $_FILES['picturefile']['name'];
 					$tmpName = $_FILES['picturefile']['tmp_name'];
