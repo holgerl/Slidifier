@@ -192,20 +192,6 @@
 				return true;
 			}
 		}
-		
-		if (isset($_GET['batch'])) {
-			$files = scandir('./uploaded_files');
-			foreach($files as $file) {
-				$filename = "./uploaded_files/" . $file;
-				$fp = fopen($filename, 'r');
-				$content = fread($fp, filesize($filename));
-				fclose($fp);
-				
-				updateOrInsertImage($file, $content);
-			}
-			sendJSONResponse(json_encode($files));
-			return true;
-		}
 
 		if (isset($_GET['id'])) {
 			$slideshowId = $_GET['id'];
