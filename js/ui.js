@@ -89,10 +89,15 @@ var ui = (function() {
 			}
 		});
 		
-		$(document).bind('touchstart', function(e) {
+		$(document).bind('touchstart', function(event) {
 			if ($("#slide").is(':visible')) {
-				slideForward();
-				e.preventDefault();
+				if (event.targetTouches[0].pageX < event.clientX/2) {
+					slideBackward();
+					e.preventDefault();
+				} else {
+					slideForward();
+					e.preventDefault();
+				}
 			}
 		});
 	};
