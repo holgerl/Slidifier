@@ -196,7 +196,7 @@
 		if (isset($_GET['batch'])) {
 			$files = scandir('./uploaded_files');
 			foreach($files as $file) {
-				$filename = "./uploaded_files" . $file;
+				$filename = "./uploaded_files/" . $file;
 				$fp = fopen($filename, 'r');
 				$content = fread($fp, filesize($filename));
 				fclose($fp);
