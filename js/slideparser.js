@@ -125,7 +125,7 @@ var slideparser = (function() {
 	}
 	
 	function unescapeWhitelist(str) {
-		var whitelist = new Array("strong", "img", "em", "span", "h1", "h2", "h3", "h4", "h5", "h6", "!--");
+		var whitelist = new Array("strong", "img", "em", "span", "h1", "h2", "h3", "h4", "h5", "h6", "!--", "table", "tr", "th", "td");
 		
 		for (var i in whitelist) {
 			var white = new RegExp("&lt;(\s*[^&]*"+whitelist[i]+"[^&]*)&gt;", "g");
