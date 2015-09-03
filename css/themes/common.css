@@ -66,6 +66,9 @@
 	width: 88%;
 }
 
+#slidecontent table {
+	display: inline-block;
+}
 
 #slide:before {
 	content: '';
