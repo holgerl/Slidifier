@@ -66,6 +66,18 @@
 	width: 88%;
 }
 
+#slidecontent table {
+	display: inline-block;
+	font-size: 100%;
+}
+
+#slidecontent th {
+	padding: 0.4em 0.66em;
+}
+
+#slidecontent td {
+	padding: 0.2em 0.66em;
+}
 
 #slide:before {
 	content: '';
